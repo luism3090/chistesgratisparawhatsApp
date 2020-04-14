@@ -95,7 +95,7 @@ public class CategoriasActivity extends AppCompatActivity {
         mInterstitialAd = new InterstitialAd(this);
         // ID DE PRUEBA --->  ca-app-pub-3940256099942544/1033173712
         // ID EL BUENO ---> ca-app-pub-7642244438296434/5675855865
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.setAdUnitId("ca-app-pub-7642244438296434/5675855865");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         getSupportActionBar().setTitle("Categorias");
