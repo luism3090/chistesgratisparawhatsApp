@@ -117,7 +117,6 @@ public class BusquedaChistesActivity extends AppCompatActivity implements View.O
         getSupportActionBar().setTitle("Buscar Chistes");
 
         // PUBLICIDAD
-        MobileAds.initialize(this, "ca-app-pub-7642244438296434~6399908463");
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
