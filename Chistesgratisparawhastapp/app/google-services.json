@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "826791542838",
+    "firebase_url": "https://chistes-gratis-para-what-35c62.firebaseio.com",
+    "project_id": "chistes-gratis-para-what-35c62",
+    "storage_bucket": "chistes-gratis-para-what-35c62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826791542838:android:c0798d905430245591d897",
+        "android_client_info": {
+          "package_name": "com.example.chistesgratisparawhastapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "826791542838-84s3r88bdj45asec63297mbp5epd3845.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDktnlyJFm5p2nAsZTpfDfdQBAfULOh2AM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "826791542838-84s3r88bdj45asec63297mbp5epd3845.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

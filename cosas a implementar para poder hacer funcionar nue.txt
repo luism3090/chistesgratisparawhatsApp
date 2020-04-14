@@ -1,0 +1,30 @@
+cosas a implementar para poder hacer funcionar nuestra aplicacion desde un hosting desde la web
+
+
+
+// Agregar en el objeto dependencias del archivo build.gradle la siguiente linea de codigo dentro del 
+objeto dependencias 
+
+implementation 'com.android.volley:volley:1.1.1'
+
+
+
+// Agregar en el archivo AndroidManifest.xml el permiso para permitirle a nuestra app conectarse a internet 
+debemos agregarla abajito de la linea <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.a100_mysql_con_android_studio">
+
+
+<uses-permission android:name="android.permission.INTERNET" />
+
+
+
+// colocar tambien la siguiente linea en el achivo AndroidManifest.xml como un parametro mas dentro del mismo
+ <application  >
+
+
+
+ <application
+        ...
+        android:usesCleartextTraffic="true">
+        ...
+   </application>

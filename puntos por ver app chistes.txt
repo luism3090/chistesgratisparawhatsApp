@@ -1,0 +1,31 @@
+
+
+1. Falta checar lo del icono de notificacicion   --->  (YA)
+
+3. Falta colocarle un splash screen android a la aplicacion --->  (YA)
+
+4. Falta verficar lo del responsive desing hacia el ancho Width   --->  (Ya No se hizo no es necesario)
+
+5. Falta ver lo de la publicidad  --->  (YA)
+
+
+-----------------------------------------------------------
+
+
+1. sacarme una tarjeta de credito o pedir prestado una para crearme la cuenta 
+de desarrollador en la google play                                             (FALTA)
+
+
+2. verificar cual será nuestro nombre de la aplicacion                         (FALTA)
+
+
+3. verificar como crear una descripcion ganadora                               (FALTA)
+
+
+4. verificar las politicas de bloqueo y las buenas practicas para subir la     (FALTA)
+applicacion sin problemas 
+(de derechos de autor o infringir politicas de google)
+
+
+5. y por ultimo como publicarla en la google play  --->                        (FALTA)
+

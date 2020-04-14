@@ -1,0 +1,39 @@
+Tenia un super problema por el cual no podia poner los anuncios en mi applicacion
+
+a pesar de seguir a toda norma el tutorial de como poner anuncios desde la 
+mismisima url siguiente :
+
+url --> https://developers.google.com/admob/android/quick-start?hl=es 
+
+del mismisimo Dios google
+
+
+tenia problemas con las versiones de las librerias pero eso lo fui solucionando
+
+colocando las numeros de las versiones que estuvieran casi en la misma numeracion 
+como los siguientes en el arvchivo build.gradle
+
+
+      implementation 'com.google.firebase:firebase-messaging:20.0.0'
+ 
+     implementation 'com.google.firebase:firebase-ads:18.0.0'
+
+entre el la version 20.0.0 y la 18.0.0  hay poca diferencia mientras haya poca diferencia entre los numeros de las versiones nos ayuda a tener menos errores o problemas de incompatibilidad
+
+
+
+PERO MI MAYOR PROBLEMA ERA QUE APESAR DE LLEVAR TODO LO ANTERIOR BIEN ME MARCABA ERRORES AL 
+EJECUTAR LA APLICACION YA PUESTA BIEN LA PUBLICIDAD 
+
+LA SOLUCION FUE INSTALAR LA HERRAMIENTA DE LA SIGUIENTE URL QUE ES
+
+
+https://developers.google.com/admob/android/quick-start?hl=es#import_the_mobile_ads_sdk
+
+
+Import the Mobile Ads SDK
+
+Note: You should begin with a new project in Android Studio and check the box to Use AndroidX Artifacts or refer to Migrating to AndroidX to migrate your project.
+
+
+instalando el Use AndroidX Artifacts or refer to Migrating to AndroidX SE SOLUCIONARON LOS PROBLEMAS QUE TENIA Y POR FIN LO LOGRÉ

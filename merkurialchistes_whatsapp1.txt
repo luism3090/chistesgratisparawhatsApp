@@ -1,0 +1,48 @@
+merkurialchistes_whatsapp1
+
+
+
+id_chiste     
+chiste
+id_categoria
+fecha
+
+
+id_categoria
+categoria
+fecha 
+
+INSERT into chistes values (null,'¿Sabes que mi primo anda en bicicleta desde los 5 años? Asu apoco ?, ya debe estar bien lejos',1,NOW());
+
+INSERT into chistes values (null,'¿A qué no sabes lo que le dice un pollito a otro pollito cuando se enoja? ¡Caldito seas!',2,NOW());
+
+INSERT into chistes values (null,'¿Cómo se llama el hermano vegetariano de Bruce Lee? Broco Lee',1,NOW());
+
+INSERT into chistes values (null,'Dios por favor permite que este calor derrita la grasa que hay en mi cuerpo',1,NOW());
+
+
+
+INSERT into chistes values (null,'Una Maestra le pregunta a su alumno: – como se dice “perro” en inglés. – Esta muy facil, se dice “dog”. – ¡Excelente! ¿Y cómo se dice veterinario? – se dice “dog-tor”',1,NOW());
+
+
+
+INSERT into chistes values (null,'Dios por favor permite que este calor derrita la grasa que hay en mi cuerpo',1,NOW());
+
+INSERT into chistes values (null,'¿Cómo se llama al elefante que viste de traje?
+"Elegante"',1,NOW());
+
+INSERT into chistes values (null,'Mi hijo en su nuevo trabajo se siente como pez en el agua
+¿Qué hace? Nada!!',1,NOW());
+
+INSERT into chistes values (null,'Un niño le dijo a su papá papá papá vinieron a preguntar si ¿Aquí vendian un burro ? y ¿qué les dijiste ? que no estabas',1,NOW());
+
+INSERT into chistes values (null,'Si mi perro me dice lava la ropa de todos modos no lo hare porque?  porque los perros no hablan',2,NOW());
+
+
+
+INSERT into chistes values (null,'Un borracho entra a su casa a las 3 de la mañana, y su esposa, que lo está esperando le dice:- ¡que no ves a la hora que vienes llegando!- ¿Y quién te dijo que vengo llegando?, vine a buscar mi guitarra.',4,NOW());
+
+
+
+
+
