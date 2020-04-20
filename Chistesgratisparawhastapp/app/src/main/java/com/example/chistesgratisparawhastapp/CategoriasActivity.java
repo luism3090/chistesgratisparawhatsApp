@@ -95,7 +95,7 @@ public class CategoriasActivity extends AppCompatActivity {
         mInterstitialAd = new InterstitialAd(this);
         // ID DE PRUEBA --->  ca-app-pub-3940256099942544/1033173712
         // ID EL BUENO ---> ca-app-pub-7642244438296434/5675855865
-        mInterstitialAd.setAdUnitId("ca-app-pub-7642244438296434/5675855865");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         getSupportActionBar().setTitle("Categorias");
@@ -165,9 +165,6 @@ public class CategoriasActivity extends AppCompatActivity {
 
 
     }
-
-
-
 
     private void obtenerCategorias(String url){
 
@@ -248,18 +245,20 @@ public class CategoriasActivity extends AppCompatActivity {
                                     // mostrando Intertitial
                                     pref_Index_InterstitialAd = getSharedPreferences("indexPublicidad", Context.MODE_PRIVATE);
                                     String index_interstitalAd = pref_Index_InterstitialAd.getString("index_interstitalAd","");
+                                    int a = Integer.parseInt(index_interstitalAd);
 
-                                    if(index_interstitalAd.equals("15")){
+                                    if(a>=8){
 
+                                        incrementarIdInterstitial("whatsApp");
                                         // publicidad
                                         if (mInterstitialAd.isLoaded()) {
                                             mInterstitialAd.show();
                                         }else{
                                             //Toast.makeText(getApplicationContext(), "aun no se ha cargado el Intertitial", Toast.LENGTH_LONG).show();
                                         }
+                                    }else{
+                                        //incrementarIdInterstitial("otro");
                                     }
-
-                                    incrementarIdInterstitial("otro");
 
                                 }
                             });
@@ -280,11 +279,7 @@ public class CategoriasActivity extends AppCompatActivity {
 
                         }
 
-
                         //Toast.makeText(getApplicationContext(), mipreferencia_TotalRows.getString("totalRows","")+"_c", Toast.LENGTH_LONG).show();
-
-                        // Modals nuevaModal = new Modals("Mensaje", mipreferencia_TotalRows.getString("totalRows","")+"b", "Ok", MainActivity.this);
-                        // nuevaModal.createModal();
 
                     }else{
 
@@ -340,11 +335,11 @@ public class CategoriasActivity extends AppCompatActivity {
 
         pref_Index_InterstitialAd = getSharedPreferences("indexPublicidad", Context.MODE_PRIVATE);
         String index_interstitalAd = pref_Index_InterstitialAd.getString("index_interstitalAd","");
+        int a = Integer.parseInt(index_interstitalAd);
 
         if(accion.equals("otro"))  // cuando se pulse un boton DIFERENTE a Whastapp
         {
-            int a = Integer.parseInt(index_interstitalAd);
-            if( a <= 14 ){
+            if( a <= 7 ){
                 count_interstitalAd = Integer.parseInt(index_interstitalAd) + 1;
                 SharedPreferences.Editor obj_editor3  = pref_Index_InterstitialAd.edit();
                 obj_editor3.putString("index_interstitalAd", String.valueOf(count_interstitalAd));
@@ -352,10 +347,9 @@ public class CategoriasActivity extends AppCompatActivity {
             }
         }
         else if(accion.equals("whatsApp") || accion.equals("activity")){
-
-            if(index_interstitalAd.equals("15")){
+            if(a>=8){
                 SharedPreferences.Editor obj_editor3  = pref_Index_InterstitialAd.edit();
-                obj_editor3.putString("index_interstitalAd","0");
+                obj_editor3.putString("index_interstitalAd","1");
                 obj_editor3.commit();
             }else{
                 count_interstitalAd = Integer.parseInt(index_interstitalAd) + 1;
@@ -365,7 +359,8 @@ public class CategoriasActivity extends AppCompatActivity {
             }
         }
 
-        //Toast.makeText(getApplicationContext(),index_interstitalAd,Toast.LENGTH_SHORT).show();
+       // index_interstitalAd = pref_Index_InterstitialAd.getString("index_interstitalAd","");
+       // Toast.makeText(getApplicationContext(),index_interstitalAd,Toast.LENGTH_SHORT).show();
     }
 
 }

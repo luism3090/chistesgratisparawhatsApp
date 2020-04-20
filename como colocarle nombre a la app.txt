@@ -11,3 +11,7 @@ chistes gratis y graciosos
 
 chistes gratis para whatsapp
 chistes cortos y buenos
+
+
+
+INSERT into chistes values (null,'Un borrachito leyó mucho sobre lo mal que hace la bebida, y luego de mucho pensarlo sacó una conclusión: Iba a dejar la lectura.',4,NOW());

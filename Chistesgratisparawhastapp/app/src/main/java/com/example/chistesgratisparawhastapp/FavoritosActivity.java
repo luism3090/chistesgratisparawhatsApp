@@ -75,6 +75,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
     int x=0;
     boolean masChistes = true;
     int count_interstitalAd = 0;
+    String showAdIntertiWhatsOrScroll = "";
 
     // PUBLICIDAD
     private AdView mAdView;
@@ -97,7 +98,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
             obj_editor3.commit();
         }
         else{
-            incrementarIdInterstitial("activity");
+            //incrementarIdInterstitial("activity");
         }
 
         // PUBLICIDAD
@@ -111,13 +112,32 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
         mInterstitialAd = new InterstitialAd(this);
         // ID DE PRUEBA --->  ca-app-pub-3940256099942544/1033173712
         // ID EL BUENO ---> ca-app-pub-7642244438296434/5675855865
-        mInterstitialAd.setAdUnitId("ca-app-pub-7642244438296434/5675855865");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
                 // Load the next interstitial.
+
+                if(showAdIntertiWhatsOrScroll.equals("Scroll")){
+
+                    mAdView.setVisibility(View.GONE);
+                    //Toast.makeText(getApplicationContext(), showAdIntertiWhatsOrScroll+"jajaja", Toast.LENGTH_LONG).show();
+                    mostrarAlertaCargando();
+                    obtenerChistesFavoritos("https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/obtener_chistes_favoritos.php",false);
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            ocultarAlertaEspera();
+                            mAdView.setVisibility(View.VISIBLE);
+                        }
+                    }, 1000);
+
+                }
+
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
 
@@ -132,14 +152,8 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
 
         getSupportActionBar().setTitle("Favoritos");
 
-        sv_main = (ScrollView)findViewById(R.id.scrol);
-
         final ImageView image_home1 = (ImageView)findViewById(R.id.image_home1);
-        final ImageView image_home2 = (ImageView)findViewById(R.id.image_home2);
         final ImageView image_categorias1 = (ImageView)findViewById(R.id.image_categorias1);
-        final ImageView image_categorias2 = (ImageView)findViewById(R.id.image_categorias2);
-        final ImageView image_favoritos1 = (ImageView)findViewById(R.id.image_favoritos1);
-        final ImageView image_favoritos2 = (ImageView)findViewById(R.id.image_favoritos2);
         final ImageView image_busqueda1 = (ImageView)findViewById(R.id.image_busqueda1);
 
 
@@ -335,18 +349,21 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
                                     // mostrando Intertitial
                                     pref_Index_InterstitialAd = getSharedPreferences("indexPublicidad", Context.MODE_PRIVATE);
                                     String index_interstitalAd = pref_Index_InterstitialAd.getString("index_interstitalAd","");
+                                    int a = Integer.parseInt(index_interstitalAd);
 
-                                    if(index_interstitalAd.equals("15")){
+                                    if(a>=8){
 
                                         // publicidad
+
+                                        showAdIntertiWhatsOrScroll = "Whats";
+                                        incrementarIdInterstitial("whatsApp");
+
                                         if (mInterstitialAd.isLoaded()) {
                                             mInterstitialAd.show();
                                         }else{
                                            // Toast.makeText(getApplicationContext(), "aun no se ha cargado el Intertitial", Toast.LENGTH_LONG).show();
                                         }
                                     }
-                                    incrementarIdInterstitial("whatsApp");
-
 
                                 }
                             });
@@ -626,7 +643,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
                                 adView2.setAdSize(AdSize.MEDIUM_RECTANGLE);
                                 // ca-app-pub-7642244438296434/9400366508  --> ESTE ES EL BUENO
                                 // ca-app-pub-3940256099942544/6300978111  --> PARA PRUEBAS
-                                adView2.setAdUnitId("ca-app-pub-7642244438296434/9400366508");
+                                adView2.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
                                 AdRequest adRequest2 = new AdRequest.Builder().build();
                                 adView2.loadAd(adRequest2);
                                 layout_chistes.addView(adView2);
@@ -887,9 +904,6 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
 
         if(topDetector <= 0) {
 
-            //Toast.makeText(getBaseContext(),"Scroll View top reached",Toast.LENGTH_SHORT).show();
-            //Log.d(MainActivity.class.getSimpleName(),"Scroll View top reached");
-            //shadow_top.setVisibility(View.INVISIBLE);
         }
         else if(bottomDetector <= 15 ) {
 
@@ -900,33 +914,41 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
 
                 if(c.equals("1")){
 
-                    mostrarAlertaCargando();
-                    obtenerChistesFavoritos("https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/obtener_chistes_favoritos.php",false);
+                    pref_Index_InterstitialAd = getSharedPreferences("indexPublicidad", Context.MODE_PRIVATE);
+                    String index_interstitalAd = pref_Index_InterstitialAd.getString("index_interstitalAd","");
+                    int a = Integer.parseInt(index_interstitalAd);
 
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
+                    if(a>=8){
 
-                            ocultarAlertaEspera();
-
+                        incrementarIdInterstitial("whatsApp");
+                        showAdIntertiWhatsOrScroll = "Scroll";
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
                         }
-                    },2000);
+                    }
+                    else{
+                        mostrarAlertaCargando();
+                        obtenerChistesFavoritos("https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/obtener_chistes_favoritos.php",false);
+                        incrementarIdInterstitial("otro");
+
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                ocultarAlertaEspera();
+                            }
+                        }, 1000);
+
+                    }
 
                 }
                 else{
                     //Toast.makeText(getBaseContext(),"has llegado hasta abajo pero cayo en el else"+c,Toast.LENGTH_SHORT).show();
                 }
-
             }
-
-            //Log.d(MainActivity.class.getSimpleName(),"Scroll View bottom reached");
-            //shadow_bottom.setVisibility(View.INVISIBLE);
         }
         else {
-            //shadow_top.setVisibility(View.VISIBLE);
-            //shadow_bottom.setVisibility(View.VISIBLE);
             x=0;
-            //Toast.makeText(getBaseContext(),"en medio",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -951,11 +973,11 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
 
         pref_Index_InterstitialAd = getSharedPreferences("indexPublicidad", Context.MODE_PRIVATE);
         String index_interstitalAd = pref_Index_InterstitialAd.getString("index_interstitalAd","");
+        int a = Integer.parseInt(index_interstitalAd);
 
         if(accion.equals("otro"))  // cuando se pulse un boton DIFERENTE a Whastapp
         {
-            int a = Integer.parseInt(index_interstitalAd);
-            if( a <= 14 ){
+            if( a <= 7 ){
                 count_interstitalAd = Integer.parseInt(index_interstitalAd) + 1;
                 SharedPreferences.Editor obj_editor3  = pref_Index_InterstitialAd.edit();
                 obj_editor3.putString("index_interstitalAd", String.valueOf(count_interstitalAd));
@@ -963,10 +985,9 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
             }
         }
         else if(accion.equals("whatsApp") || accion.equals("activity")){
-
-            if(index_interstitalAd.equals("15")){
+            if(a>=8){
                 SharedPreferences.Editor obj_editor3  = pref_Index_InterstitialAd.edit();
-                obj_editor3.putString("index_interstitalAd","0");
+                obj_editor3.putString("index_interstitalAd","1");
                 obj_editor3.commit();
             }else{
                 count_interstitalAd = Integer.parseInt(index_interstitalAd) + 1;
@@ -976,6 +997,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
             }
         }
 
+       // index_interstitalAd = pref_Index_InterstitialAd.getString("index_interstitalAd","");
        // Toast.makeText(getApplicationContext(),index_interstitalAd,Toast.LENGTH_SHORT).show();
     }
 
