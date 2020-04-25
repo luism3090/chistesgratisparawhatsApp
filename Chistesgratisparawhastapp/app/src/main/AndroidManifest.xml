@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="LockedOrientationActivity"
     package="com.example.chistesgratisparawhastapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -27,13 +29,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".BusquedaChistesActivity"
-                  android:windowSoftInputMode="adjustResize" >
+                  android:windowSoftInputMode="adjustResize"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".FavoritosActivity" />
-        <activity android:name=".ChistesCategoriaActivity" />
-        <activity android:name=".CategoriasActivity" />
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".FavoritosActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ChistesCategoriaActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".CategoriasActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait" />
 <!--
         <service
             android:name=".Services.FireBaseId"

@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         mInterstitialAd = new InterstitialAd(this);
         // ID DE PRUEBA --->  ca-app-pub-3940256099942544/1033173712
         // ID EL BUENO ---> ca-app-pub-7642244438296434/5675855865
-        mInterstitialAd.setAdUnitId("ca-app-pub-7642244438296434/5675855865");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         mInterstitialAd.setAdListener(new AdListener() {
@@ -305,7 +305,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                             textViewChiste.setMinHeight(700);
                             textViewChiste.setGravity(Gravity.CENTER);
                             textViewChiste.setTextSize(24);
-                            textViewChiste.setPadding(30,0,30,0);
+                            textViewChiste.setPadding(30,50,30,50);
                             textViewChiste.setId(id_chiste_db);  //
                             layout_chistes.addView(textViewChiste);
                             textViewChiste.setOnClickListener(new View.OnClickListener() {
@@ -324,7 +324,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                             contenedor.setOrientation(LinearLayout.HORIZONTAL);
                             //contenedor.setBackgroundColor(Color.rgb(20,50,90));
                             contenedor.setPadding(0,-30,0,0);
-                            contenedor.setGravity(Gravity.CENTER_VERTICAL);
+                            contenedor.setGravity(Gravity.CENTER_HORIZONTAL);
                             layout_chistes.addView(contenedor);
 
 
@@ -335,7 +335,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                             botonWhastapp.setLayoutParams(new ActionBar.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                             botonWhastapp.setImageResource(R.mipmap.icono_whatsapp);
                             botonWhastapp.setBackgroundColor(Color.TRANSPARENT);
-                            botonWhastapp.setPadding(0,26,0,0);
+                            botonWhastapp.setPadding(5,26,0,0);
                             botonWhastapp.setId(id_chiste_db);
                             //botonWhastapp.setMinimumWidth(50);
                             contenedor.addView(botonWhastapp);
@@ -405,7 +405,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                             botonFacebook.setLayoutParams(new ActionBar.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                             botonFacebook.setImageResource(R.mipmap.icono_messenger);
                             botonFacebook.setBackgroundColor(Color.TRANSPARENT);
-                            botonFacebook.setPadding(12,28,0,0);
+                            botonFacebook.setPadding(22,28,0,0);
                             //botonFacebook.setMinimumHeight(50);
                             botonFacebook.setId(id_chiste_db);
                             contenedor.addView(botonFacebook);
@@ -459,7 +459,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                             botonCopiar.setLayoutParams(new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                             botonCopiar.setImageResource(R.mipmap.icono_copiar);
                             botonCopiar.setBackgroundColor(Color.TRANSPARENT);
-                            botonCopiar.setPadding(22,32,0,0);
+                            botonCopiar.setPadding(24,32,0,0);
                             botonCopiar.setId(id_chiste_db);
                             contenedor.addView(botonCopiar);
                             botonCopiar.setOnClickListener(new View.OnClickListener() {
@@ -485,7 +485,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                             botonCompartir.setLayoutParams(new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                             botonCompartir.setImageResource(R.mipmap.icono_compartir);
                             botonCompartir.setBackgroundColor(Color.TRANSPARENT);
-                            botonCompartir.setPadding(30,32,0,0);
+                            botonCompartir.setPadding(26,32,0,0);
                             botonCompartir.setId(id_chiste_db);
                             contenedor.addView(botonCompartir);
                             botonCompartir.setOnClickListener(new View.OnClickListener() {
@@ -533,7 +533,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
                             botonCorazonFavoritos.setImageResource(R.mipmap.icono_corazon_favoritos);
                             botonCorazonFavoritos.setBackgroundColor(Color.TRANSPARENT);
-                            botonCorazonFavoritos.setPadding(38,26,0,0);
+                            botonCorazonFavoritos.setPadding(30,26,0,0);
                             botonCorazonFavoritos.setId(1000000+id_chiste_db);
                             if(id_boton_favorito_rojo.equals("null")){
                                 botonCorazonFavoritos.setVisibility(View.GONE);
@@ -578,7 +578,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
                             botonCorazon.setImageResource(R.mipmap.icono_corazon);
                             botonCorazon.setBackgroundColor(Color.TRANSPARENT);
-                            botonCorazon.setPadding(38,26,0,0);
+                            botonCorazon.setPadding(30,26,0,0);
                             botonCorazon.setId(2000000+id_chiste_db);
                             if(id_boton_favorito_normal.equals("null")){
                                 botonCorazon.setVisibility(View.VISIBLE);
@@ -623,7 +623,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
                             botonAudio.setImageResource(R.mipmap.icono_altavoz2);
                             botonAudio.setBackgroundColor(Color.TRANSPARENT);
-                            botonAudio.setPadding(43,26,0,0);
+                            botonAudio.setPadding(35,26,0,0);
                             botonAudio.setId(id_chiste_db);
                             contenedor.addView(botonAudio);
                             botonAudio.setOnClickListener(new View.OnClickListener() {
@@ -663,7 +663,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                                     adView2.setAdSize(AdSize.MEDIUM_RECTANGLE);
                                     // ca-app-pub-7642244438296434/9400366508  --> ESTE ES EL BUENO
                                     // ca-app-pub-3940256099942544/6300978111  --> PARA PRUEBAS
-                                    adView2.setAdUnitId("ca-app-pub-7642244438296434/9400366508");
+                                    adView2.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
                                     AdRequest adRequest2 = new AdRequest.Builder().build();
                                     adView2.loadAd(adRequest2);
                                     layout_chistes.addView(adView2);

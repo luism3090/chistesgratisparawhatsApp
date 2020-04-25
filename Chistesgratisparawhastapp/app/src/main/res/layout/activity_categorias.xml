@@ -10,7 +10,7 @@
 
     <ScrollView
         android:id="@+id/scrol"
-        android:layout_width="338dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +54,7 @@
 
     <LinearLayout
         android:id="@+id/layout_contedor"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
         android:orientation="vertical"
@@ -75,6 +75,7 @@
                 android:layout_height="45dp"
                 android:background="@color/white"
                 android:paddingTop="5dp"
+                android:paddingLeft="-30dp"
                 android:src="@mipmap/icono_home1"
                 android:visibility="visible"></ImageView>
 
@@ -85,6 +86,7 @@
                 android:layout_toRightOf="@id/image_home1"
                 android:background="@color/white"
                 android:paddingTop="5dp"
+                android:paddingLeft="-30dp"
                 android:src="@mipmap/icono_home2"
                 android:visibility="gone"></ImageView>
 
@@ -96,6 +98,7 @@
                 android:layout_toRightOf="@id/image_home1"
                 android:background="@color/white"
                 android:paddingTop="5dp"
+                android:paddingLeft="-30dp"
                 android:src="@mipmap/icono_categorias1"
                 android:visibility="gone"></ImageView>
 
@@ -106,6 +109,7 @@
                 android:layout_toRightOf="@id/image_home1"
                 android:background="@color/white"
                 android:paddingTop="5dp"
+                android:paddingLeft="-30dp"
                 android:src="@mipmap/icono_categorias2"
                 android:visibility="visible"></ImageView>
 
@@ -118,6 +122,7 @@
                 android:layout_toRightOf="@id/image_categorias2"
                 android:background="@color/white"
                 android:paddingTop="5dp"
+                android:paddingLeft="-30dp"
                 android:src="@mipmap/icono_favoritos1"
                 android:visibility="visible"></ImageView>
 
@@ -128,6 +133,7 @@
                 android:layout_toRightOf="@id/image_categorias2"
                 android:background="@color/white"
                 android:paddingTop="5dp"
+                android:paddingLeft="-30dp"
                 android:src="@mipmap/icono_favoritos2"
                 android:visibility="gone"></ImageView>
 
@@ -140,6 +146,7 @@
                 android:layout_toRightOf="@id/image_favoritos1"
                 android:background="@color/white"
                 android:paddingTop="5dp"
+                android:paddingLeft="-10dp"
                 android:src="@mipmap/icono_busqueda1"
                 android:visibility="visible"></ImageView>
 
@@ -150,6 +157,7 @@
                 android:layout_toRightOf="@id/image_favoritos1"
                 android:background="@color/white"
                 android:paddingTop="5dp"
+                android:paddingLeft="-10dp"
                 android:src="@mipmap/icono_busqueda2"
                 android:visibility="gone"></ImageView>
 
@@ -178,7 +186,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-7642244438296434/1571373178"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
 

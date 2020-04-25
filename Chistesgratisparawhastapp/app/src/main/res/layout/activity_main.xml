@@ -17,7 +17,7 @@
 
     <ScrollView
         android:id="@+id/scrol"
-        android:layout_width="338dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,118 +41,129 @@
 
     </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/layout_contedor"
-        android:layout_width="409dp"
-        android:layout_height="50dp"
-        android:background="@color/white"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <!-- descomentar -->
+   <LinearLayout
+       android:id="@+id/layout_contedor"
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:background="@color/white"
+       android:orientation="vertical"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
-            android:id="@+id/relative_inferior"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:background="@color/white">
+       <RelativeLayout
+           android:id="@+id/relative_inferior"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_alignParentBottom="true"
+           android:background="@color/white">
 
-            <ImageView
-                android:id="@+id/image_home1"
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:background="@color/white"
-                android:paddingTop="5dp"
-                android:src="@mipmap/icono_home1"
-                android:visibility="gone"></ImageView>
+           <ImageView
+               android:id="@+id/image_home1"
+               android:layout_width="100dp"
+               android:layout_height="45dp"
+               android:background="@color/white"
+               android:paddingTop="5dp"
+               android:paddingLeft="-30dp"
+               android:src="@mipmap/icono_home1"
+               android:visibility="gone"></ImageView>
 
-            <ImageView
-                android:id="@+id/image_home2"
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:layout_toRightOf="@id/image_home1"
-                android:background="@color/white"
-                android:paddingTop="5dp"
-                android:src="@mipmap/icono_home2"
-                android:visibility="visible"></ImageView>
+           <ImageView
+               android:id="@+id/image_home2"
+               android:layout_width="100dp"
+               android:layout_height="45dp"
+               android:layout_toRightOf="@id/image_home1"
+               android:background="@color/white"
+               android:paddingTop="5dp"
+               android:paddingLeft="-30dp"
+               android:src="@mipmap/icono_home2"
+               android:visibility="visible"></ImageView>
 
-            <ImageView
-                android:id="@+id/image_categorias1"
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/image_home2"
-                android:background="@color/white"
-                android:paddingTop="5dp"
-                android:src="@mipmap/icono_categorias1"
-                android:visibility="visible"></ImageView>
+           <ImageView
+               android:id="@+id/image_categorias1"
+               android:layout_width="100dp"
+               android:layout_height="45dp"
+               android:layout_centerVertical="true"
+               android:layout_toRightOf="@id/image_home2"
+               android:background="@color/white"
+               android:paddingTop="5dp"
+               android:paddingLeft="-30dp"
+               android:src="@mipmap/icono_categorias1"
+               android:visibility="visible"></ImageView>
 
-            <ImageView
-                android:id="@+id/image_categorias2"
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:layout_toRightOf="@id/image_home2"
-                android:background="@color/white"
-                android:paddingTop="5dp"
-                android:src="@mipmap/icono_categorias2"
-                android:visibility="gone"></ImageView>
+           <ImageView
+               android:id="@+id/image_categorias2"
+               android:layout_width="100dp"
+               android:layout_height="45dp"
+               android:layout_toRightOf="@id/image_home2"
+               android:background="@color/white"
+               android:paddingTop="5dp"
+               android:paddingLeft="-30dp"
+               android:src="@mipmap/icono_categorias2"
+               android:visibility="gone"></ImageView>
 
-            <ImageView
-                android:id="@+id/image_favoritos1"
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="-1dp"
-                android:layout_toRightOf="@id/image_categorias1"
-                android:background="@color/white"
-                android:paddingTop="5dp"
-                android:src="@mipmap/icono_favoritos1"
-                android:visibility="visible"></ImageView>
+           <ImageView
+               android:id="@+id/image_favoritos1"
+               android:layout_width="100dp"
+               android:layout_height="45dp"
+               android:layout_centerVertical="true"
+               android:layout_marginLeft="-1dp"
+               android:layout_toRightOf="@id/image_categorias1"
+               android:background="@color/white"
+               android:paddingTop="5dp"
+               android:paddingLeft="-30dp"
+               android:src="@mipmap/icono_favoritos1"
+               android:visibility="visible"></ImageView>
 
-            <ImageView
-                android:id="@+id/image_favoritos2"
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:layout_toRightOf="@id/image_categorias1"
-                android:background="@color/white"
-                android:paddingTop="5dp"
-                android:src="@mipmap/icono_favoritos2"
-                android:visibility="gone"></ImageView>
-
-
-            <ImageView
-                android:id="@+id/image_busqueda1"
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/image_favoritos1"
-                android:background="@color/white"
-                android:paddingTop="5dp"
-                android:src="@mipmap/icono_busqueda1"
-                android:visibility="visible"></ImageView>
-
-            <ImageView
-                android:id="@+id/image_busqueda2"
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:layout_toRightOf="@id/image_favoritos1"
-                android:background="@color/white"
-                android:paddingTop="5dp"
-                android:src="@mipmap/icono_busqueda2"
-                android:visibility="gone"></ImageView>
+           <ImageView
+               android:id="@+id/image_favoritos2"
+               android:layout_width="100dp"
+               android:layout_height="45dp"
+               android:layout_toRightOf="@id/image_categorias1"
+               android:background="@color/white"
+               android:paddingTop="5dp"
+               android:paddingLeft="-30dp"
+               android:src="@mipmap/icono_favoritos2"
+               android:visibility="gone"></ImageView>
 
 
-        </RelativeLayout>
+           <ImageView
+               android:id="@+id/image_busqueda1"
+               android:layout_width="100dp"
+               android:layout_height="45dp"
+               android:layout_centerVertical="true"
+               android:layout_toRightOf="@id/image_favoritos1"
+               android:background="@color/white"
+               android:paddingTop="5dp"
+               android:paddingLeft="-10dp"
+               android:src="@mipmap/icono_busqueda1"
+               android:visibility="visible"></ImageView>
 
-    </LinearLayout>
+           <ImageView
+               android:id="@+id/image_busqueda2"
+               android:layout_width="100dp"
+               android:layout_height="45dp"
+               android:layout_toRightOf="@id/image_favoritos1"
+               android:background="@color/white"
+               android:paddingTop="5dp"
+               android:paddingLeft="-10dp"
+               android:src="@mipmap/icono_busqueda2"
+               android:visibility="gone"></ImageView>
 
-    <!--
-          adUnitId   DE PRUEBA
 
-          ca-app-pub-3940256099942544/6300978111
+       </RelativeLayout>
 
-    -->
+   </LinearLayout>
+
+    <!-- -->
+
+   <!--
+         adUnitId   DE PRUEBA
+
+         ca-app-pub-3940256099942544/6300978111
+
+   -->
 
     <!--
         adUnitId    YA EL BUENO
@@ -160,24 +171,26 @@
         ca-app-pub-7642244438296434/1571373178
     -->
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-7642244438296434/1571373178"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
+
+   <com.google.android.gms.ads.AdView
+       android:id="@+id/adView"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_alignParentBottom="true"
+       android:layout_centerHorizontal="true"
+       app:adSize="BANNER"
+       app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
+
+    <!-- -->
 
 
+   <!--
+                 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <!--
-                  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-
-                   -->
+                  -->
 
     <!--
 -->
