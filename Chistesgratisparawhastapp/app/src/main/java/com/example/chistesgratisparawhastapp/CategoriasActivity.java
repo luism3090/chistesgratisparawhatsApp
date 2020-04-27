@@ -97,7 +97,7 @@ public class CategoriasActivity extends AppCompatActivity {
         mInterstitialAd = new InterstitialAd(this);
         // ID DE PRUEBA --->  ca-app-pub-3940256099942544/1033173712
         // ID EL BUENO ---> ca-app-pub-7642244438296434/5675855865
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.setAdUnitId("ca-app-pub-7642244438296434/5675855865");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         mInterstitialAd.setAdListener(new AdListener() {
@@ -105,29 +105,36 @@ public class CategoriasActivity extends AppCompatActivity {
             public void onAdClosed() {
                 // Load the next interstitial.
 
-                    //mAdView.setVisibility(View.GONE);
+                mAdView.setVisibility(View.GONE);
+                mostrarAlertaEspera();
+                obtenerCategorias("https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/obtener_categorias.php");
+
+
                     //Toast.makeText(getApplicationContext(), showAdIntertiWhatsOrScroll+"jajaja", Toast.LENGTH_LONG).show();
 
-                mipreferencia_categoria = getSharedPreferences("datos_categoria", Context.MODE_PRIVATE);
-                String id_categoria = mipreferencia_categoria.getString("id_categoria","");
-
-                Button BotonCategoria = (Button) findViewById(Integer.parseInt(id_categoria));
-                String textoCategoria = BotonCategoria.getText().toString();
-
-                Intent chistesCategoria = new Intent(getApplicationContext(),ChistesCategoriaActivity.class);
-
-                chistesCategoria.putExtra("id_categoria",id_categoria);
-                chistesCategoria.putExtra("titulo_categoria",textoCategoria);
-                chistesCategoria.putExtra("id_usuario",mipreferencia_user.getString("id_usuario",""));
-
-                 startActivity(chistesCategoria);
-                 
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
 
+                            mipreferencia_categoria = getSharedPreferences("datos_categoria", Context.MODE_PRIVATE);
+                            String id_categoria = mipreferencia_categoria.getString("id_categoria","");
+
+                            Button BotonCategoria = (Button) findViewById(Integer.parseInt(id_categoria));
+                            String textoCategoria = BotonCategoria.getText().toString();
+
+                            mAdView.setVisibility(View.VISIBLE);
+
+                            Intent chistesCategoria = new Intent(getApplicationContext(),ChistesCategoriaActivity.class);
+
+                            chistesCategoria.putExtra("id_categoria",id_categoria);
+                            chistesCategoria.putExtra("titulo_categoria",textoCategoria);
+                            chistesCategoria.putExtra("id_usuario",mipreferencia_user.getString("id_usuario",""));
+
+                            startActivity(chistesCategoria);
+
+
                         }
-                    }, 1000);
+                    }, 200);
 
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
