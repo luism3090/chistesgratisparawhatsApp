@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -36,6 +37,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 // PUBLICIDAD
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
@@ -95,8 +97,43 @@ public class CategoriasActivity extends AppCompatActivity {
         mInterstitialAd = new InterstitialAd(this);
         // ID DE PRUEBA --->  ca-app-pub-3940256099942544/1033173712
         // ID EL BUENO ---> ca-app-pub-7642244438296434/5675855865
-        mInterstitialAd.setAdUnitId("ca-app-pub-7642244438296434/5675855865");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+
+                    //mAdView.setVisibility(View.GONE);
+                    //Toast.makeText(getApplicationContext(), showAdIntertiWhatsOrScroll+"jajaja", Toast.LENGTH_LONG).show();
+
+                mipreferencia_categoria = getSharedPreferences("datos_categoria", Context.MODE_PRIVATE);
+                String id_categoria = mipreferencia_categoria.getString("id_categoria","");
+
+                Button BotonCategoria = (Button) findViewById(Integer.parseInt(id_categoria));
+                String textoCategoria = BotonCategoria.getText().toString();
+
+                Intent chistesCategoria = new Intent(getApplicationContext(),ChistesCategoriaActivity.class);
+
+                chistesCategoria.putExtra("id_categoria",id_categoria);
+                chistesCategoria.putExtra("titulo_categoria",textoCategoria);
+                chistesCategoria.putExtra("id_usuario",mipreferencia_user.getString("id_usuario",""));
+
+                 startActivity(chistesCategoria);
+                 
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                        }
+                    }, 1000);
+
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+            }
+
+        });
 
         getSupportActionBar().setTitle("Categorias");
 
@@ -231,16 +268,11 @@ public class CategoriasActivity extends AppCompatActivity {
 
                                     String id_categoria = String.valueOf(view.getId());
 
-                                    Button BotonCategoria = (Button) findViewById(view.getId());
-                                    String textoCategoria = BotonCategoria.getText().toString();
+                                    mipreferencia_categoria = getSharedPreferences("datos_categoria", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor obj_editor0  = mipreferencia_categoria.edit();
+                                    obj_editor0.putString("id_categoria",id_categoria);
+                                    obj_editor0.commit();
 
-                                    Intent chistesCategoria = new Intent(getApplicationContext(),ChistesCategoriaActivity.class);
-
-                                    chistesCategoria.putExtra("id_categoria",id_categoria);
-                                    chistesCategoria.putExtra("titulo_categoria",textoCategoria);
-                                    chistesCategoria.putExtra("id_usuario",mipreferencia_user.getString("id_usuario",""));
-
-                                    startActivity(chistesCategoria);
 
                                     // mostrando Intertitial
                                     pref_Index_InterstitialAd = getSharedPreferences("indexPublicidad", Context.MODE_PRIVATE);
@@ -257,7 +289,18 @@ public class CategoriasActivity extends AppCompatActivity {
                                             //Toast.makeText(getApplicationContext(), "aun no se ha cargado el Intertitial", Toast.LENGTH_LONG).show();
                                         }
                                     }else{
-                                        //incrementarIdInterstitial("otro");
+
+                                        Button BotonCategoria = (Button) findViewById(view.getId());
+                                        String textoCategoria = BotonCategoria.getText().toString();
+
+                                        Intent chistesCategoria = new Intent(getApplicationContext(),ChistesCategoriaActivity.class);
+
+                                        chistesCategoria.putExtra("id_categoria",id_categoria);
+                                        chistesCategoria.putExtra("titulo_categoria",textoCategoria);
+                                        chistesCategoria.putExtra("id_usuario",mipreferencia_user.getString("id_usuario",""));
+
+                                        startActivity(chistesCategoria);
+
                                     }
 
                                 }
@@ -364,3 +407,4 @@ public class CategoriasActivity extends AppCompatActivity {
     }
 
 }
+

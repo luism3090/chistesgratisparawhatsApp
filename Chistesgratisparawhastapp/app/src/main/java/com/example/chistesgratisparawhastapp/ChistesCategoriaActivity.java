@@ -114,7 +114,7 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
         mInterstitialAd = new InterstitialAd(this);
         // ID DE PRUEBA --->  ca-app-pub-3940256099942544/1033173712
         // ID EL BUENO ---> ca-app-pub-7642244438296434/5675855865
-        mInterstitialAd.setAdUnitId("ca-app-pub-7642244438296434/5675855865");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         mInterstitialAd.setAdListener(new AdListener() {
@@ -642,7 +642,7 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                                 adView2.setAdSize(AdSize.MEDIUM_RECTANGLE);
                                 // ca-app-pub-7642244438296434/9400366508  --> ESTE ES EL BUENO
                                 // ca-app-pub-3940256099942544/6300978111  --> PARA PRUEBAS
-                                adView2.setAdUnitId("ca-app-pub-7642244438296434/9400366508");
+                                adView2.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
                                 AdRequest adRequest2 = new AdRequest.Builder().build();
                                 adView2.loadAd(adRequest2);
                                 layout_chistes.addView(adView2);
