@@ -1,4 +1,4 @@
-package com.example.chistesgratisparawhastapp;
+package com.luismolinaapps.chistesgratisparawhastapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 

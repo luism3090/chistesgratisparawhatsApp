@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:826791542838:android:c0798d905430245591d897",
+        "mobilesdk_app_id": "1:826791542838:android:f58a75cf0386a8b091d897",
         "android_client_info": {
-          "package_name": "com.example.chistesgratisparawhastapp"
+          "package_name": "com.luismolinaapps.chistesgratisparawhastapp"
         }
       },
       "oauth_client": [

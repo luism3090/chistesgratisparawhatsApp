@@ -1,4 +1,4 @@
-package com.example.chistesgratisparawhastapp;
+package com.luismolinaapps.chistesgratisparawhastapp;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,7 +41,6 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 
 public class CategoriasActivity extends AppCompatActivity {
 

@@ -1,12 +1,10 @@
-package com.example.chistesgratisparawhastapp.Services;
+package com.luismolinaapps.chistesgratisparawhastapp.Services;
 
-import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -14,12 +12,9 @@ import android.os.Build;
 import android.text.Html;
 
 import androidx.core.app.NotificationCompat;
-import androidx.core.content.ContextCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import com.example.chistesgratisparawhastapp.BusquedaChistesActivity;
-import com.example.chistesgratisparawhastapp.MainActivity;
-import com.example.chistesgratisparawhastapp.R;
+import com.luismolinaapps.chistesgratisparawhastapp.MainActivity;
+import com.luismolinaapps.chistesgratisparawhastapp.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 

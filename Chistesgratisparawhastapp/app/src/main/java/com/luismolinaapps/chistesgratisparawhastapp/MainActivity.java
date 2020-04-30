@@ -1,4 +1,4 @@
-package com.example.chistesgratisparawhastapp;
+package com.luismolinaapps.chistesgratisparawhastapp;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -17,7 +17,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.StrictMode;
-import android.text.Layout;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
