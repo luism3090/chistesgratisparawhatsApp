@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "826791542838",
-    "firebase_url": "https://chistes-gratis-para-what-35c62.firebaseio.com",
-    "project_id": "chistes-gratis-para-what-35c62",
-    "storage_bucket": "chistes-gratis-para-what-35c62.appspot.com"
+    "project_number": "77581570686",
+    "firebase_url": "https://chistesgratisgraciososybuenos.firebaseio.com",
+    "project_id": "chistesgratisgraciososybuenos",
+    "storage_bucket": "chistesgratisgraciososybuenos.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:826791542838:android:f58a75cf0386a8b091d897",
+        "mobilesdk_app_id": "1:77581570686:android:1aebf876536a43f939be2f",
         "android_client_info": {
-          "package_name": "com.luismolinaapps.chistesgratisparawhastapp"
+          "package_name": "com.luismolina.chistesgratisparaWhatsAppV2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "826791542838-84s3r88bdj45asec63297mbp5epd3845.apps.googleusercontent.com",
+          "client_id": "77581570686-798gcpeheu0lmjlkmh87kph2sptk403e.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDktnlyJFm5p2nAsZTpfDfdQBAfULOh2AM"
+          "current_key": "AIzaSyDgCYKWv0n2kUypmXw_dPznxIqD_ZdO_58"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "826791542838-84s3r88bdj45asec63297mbp5epd3845.apps.googleusercontent.com",
+              "client_id": "77581570686-798gcpeheu0lmjlkmh87kph2sptk403e.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

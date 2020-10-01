@@ -1,0 +1,9 @@
+
+
+
+merkurial000webhost1
+
+
+Database name        db_productos
+Database username    productos
+productos            merkurialdb_productos1

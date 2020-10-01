@@ -1,0 +1,156 @@
+No es lo mismo 
+
+
+-No es lo mismo detesto los libros que los libros de texto.
+
+-No es lo mismo una bola vieja, que una vieja en bolas.
+
+--------------------
+
+-No es lo mismo, el río Missisippi que me hice pipí en el río.
+
+No es lo mismo decir un gato montes que te montes un gato.
+
+
+--------------------
+
+
+No es lo mismo tener una casa vieja, que tener una vieja en la casa.
+
+No es lo mismo pintar con brocha gorda, que pintar a una gorda con una brocha.
+
+
+--------------------
+
+
+No es lo mismo el cuarto poder, que poder llegar al cuarto.
+
+No es lo mismo decir huevos de pescado, que pescado de los huevos.
+
+
+--------------------
+
+
+No es lo mismo decir la comoda de tu hermana que acomodame a tu hermana
+
+No es lo mismo decir "mi auto Mercedes Benz" que "Mercedes, ven a mi auto".
+
+
+
+--------------------
+
+
+No es lo mismo decir Bartolome De Las Casas, que Meo del Bar a la Casa.
+
+No es lo mismo decir Santo tomas de Aquino, que aquí nomas no lo tomamos.
+
+
+--------------------
+
+No es lo mismo huele a traste que atrás te huele
+
+No es lo mismo estar dormido que estar durmiendo,
+porque no es lo mismo estar jodido que estar jodiendo
+
+
+--------------------
+
+
+No es lo mismo decir una cinta negra, que una negra encinta
+
+No es lo mismo se avecina una tormenta que me atormenta una vecina
+
+
+--------------------
+
+
+No es lo mismo dos pelotas blancas, que dos blancas en pelotas
+
+No es lo mismo un negro amanecer que amanecer con un negro
+
+
+--------------------
+
+
+No es lo mismo que un talibán tire dos torres gemelas a que un tal Iván Torres se tire a dos gemelas
+
+No es lo mismo un bebe haciendo pipi, que un pipi haciendo un bebe.
+
+--------------------
+
+
+No es lo mismo que te den agua de vaso a que te den un guevaso
+
+
+No es lo mismo la sopa hirviendo que ir viendo la sopa.
+
+
+--------------------
+
+
+No es lo mismo una chica muy mona que una mona muy chica.
+
+
+--------------------
+
+
+No es lo mismo una ración de ave que una aberración.
+
+
+--------------------
+
+
+
+
+No es lo mismo decir, golpea que te van a abrir la puerta, que abre la puerta que te van a golpear.
+
+
+No es lo mismo la verdura, que verla dura.
+
+No es lo mismo decir me baño en el lago, que en el baño me la hago.
+
+No es lo mismo Juan, melón y tierra, que Juan me lo entierra.
+
+No es lo mismo marioneta, que venga Mario y te lo meta.
+
+
+
+
+--------------------
+
+
+
+-No es lo mismo detesto los libros que los libros de texto
+
+--------------------
+
+-No es lo mismo, el río Missisippi que me hice pipí en el río.
+
+--------------------
+
+
+No es lo mismo decir un gato montes que te montes un gato.
+
+No es lo mismo tener una casa vieja, que tener una vieja en la casa.
+
+
+
+
+
+
+SELECT * FROM `chistes` WHERE chiste like '%libros de texto%'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

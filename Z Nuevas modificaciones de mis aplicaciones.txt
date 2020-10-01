@@ -1,0 +1,34 @@
+1. Hacer lo del ping del video de App Rentables   (YA)
+
+
+
+2. poner un texto con el link de la aplicacion cuando los usuarios compartan el chiste  (YA)
+
+
+descarga mas chistes aquí ---> https://play.google.com/store/apps/details?id=com.luismolina.chistesgratisparaWhatsAppV2
+
+
+
+3. cuando se le dé atras y esté a punto de salir de la aplicación ponerle   (YA)
+
+una modal que diga :
+
+
+Ayudanos 
+
+¿Nos dejas por ahora?
+
+antes de que te vayas puedes tomarte un minuto
+para darnos 5 estrellas y un comentario
+
+Calificar
+
+¿Te gustó esta aplicación?
+
+Si   No
+
+
+
+4. 
+
+ponerle un boton de compartir aplicación  (YA)

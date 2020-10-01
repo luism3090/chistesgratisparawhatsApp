@@ -159,7 +159,7 @@
     <!--
         adUnitId    YA EL BUENO
 
-        ca-app-pub-7642244438296434/1571373178
+        ca-app-pub-7642244438296434/3851886699
     -->
 
     <com.google.android.gms.ads.AdView
@@ -169,7 +169,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-7642244438296434/1571373178"
+        app:adUnitId="ca-app-pub-7642244438296434/3851886699"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
 

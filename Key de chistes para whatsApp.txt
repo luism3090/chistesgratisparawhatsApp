@@ -1,0 +1,141 @@
+
+
+firma de apk lista para subir a la google play 
+
+
+
+Key store path:  C:/f/Key.jks  
+
+
+Password: superchistes321                confirm Password:  superchistes321
+
+
+
+
+Key ------------------------------------------
+
+
+
+Alias:  ChistesGratisYGraciososKey
+
+
+Password: superchistes321                confirm Password:  superchistes321
+
+
+validity (years) :  99 
+
+
+
+Certificate -----------------------------------
+
+
+First and Last Name:  Luis Molina 
+
+
+Organizational Unit:  luismolinaapps
+ 
+
+Organization: luismolinaapps
+
+
+City or Locality: México 
+
+
+State or Province: México 
+
+
+Country Code (XX) : MX
+
+
+cd C:\Program Files\Java\jdk1.8.0_241\bin
+
+keytool -importkeystore -srckeystore C:\f\Key.jks -destkeystore C:\f\Key.jks -deststoretype pkcs12
+
+
+keytool -importkeystore -srckeystore C:\f\Key.jks -destkeystore C:\f\Key.jks -deststoretype pkcs12
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+keytool -importkeystore -srckeystore C:/f/Key.jks -destkeystore C:/f/Key.jks -deststoretype pkcs12
+
+
+keytool -importkeystore -srckeystore C:\f\Key.jks -destkeystore C:\f\Key.jks -deststoretype pkcs12
+
+
+
+
+keytool -importkeystore -srckeystore
+
+C:\Users\PEPITO\firma\chistesKey.jks -destkeystore
+
+C:\Users\PEPITO\firma\chistesKey.jks -deststoretype pkcs12
+
+
+C:\firma\Key.jks -destkeystore
+
+C:\firma\Key.jks -deststoretype pkcs12
+
+
+
+
+keytool -importkeystore -srckeystore
+
+C:/firma/Key.jks -destkeystore
+
+C:/firma/Key.jks -deststoretype pkcs12
+
+
+
+keytool -importkeystore -srckeystore C:/firma/Key.jks -destkeystore C:/firma/Key.jks -deststoretype pkcs12 -destkeypass superchistes321
+
+keytool -importkeystore -srckeystore C:\firma\Key.jks -destkeystore C:\firma\Key.jks -deststoretype pkcs12 -destkeypass superchistes321
+
+keytool -importkeystore -srckeystore D:\bolaina.jks -destkeystore D:\bolaina.jks -deststoretype pkcs12
+
+
+ keytool.exe -importkeystore -srckeystore truststore.jks  -destkeystore truststore1.p12 -srcstoretype JKS -deststoretype PKCS12
+
+
+
+
+
+
+
+
+
+
+
+luisame@outlook.com
+
+merkurialOracle1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

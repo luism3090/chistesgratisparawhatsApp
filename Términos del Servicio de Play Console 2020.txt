@@ -1,0 +1,101 @@
+Google Play
+Términos del Servicio de Play Console
+En vigor desde el 29 de abril del 2020
+
+1. Términos aplicables
+
+1.1 Gracias por utilizar Play Console. Play Console es un servicio proporcionado a desarrolladores a través de https://play.google.com/apps/publish por parte de Google LLC, corporación de Delaware con sede social en 1600 Amphitheatre Parkway, Mountain View, CA 94043, Estados Unidos; Google Ireland Limited, empresa constituida en Irlanda con sede social en Gordon House, Barrow Street, Dublín 4, Irlanda; Google Commerce Limited, empresa constituida en Irlanda con sede social en Gordon House, Barrow Street, Dublín 4, Irlanda; o Google Asia Pacific Pte. Limited, empresa constituida en Singapur con sede social en 70 Pasir Panjang Road, #03‑71, Mapletree Business City, Singapur 117371. Google podrá actualizar las entidades de Google (en su conjunto denominadas "Google" o "nosotros" en este documento) y sus direcciones cada cierto tiempo. Tu uso como persona física de Google Play Console está sujeto a estos Términos del Servicio de Google Play Console (los "Términos").
+
+1.2 Para aceptar los Términos y usar Play Console, debes tener al menos 18 años y la edad legal necesaria en tu país para formalizar un contrato vinculante con Google.
+
+1.3 Estos Términos constituyen un contrato legalmente vinculante entre tú y Google en relación con el uso que hagas de Play Console.
+
+1.4 Estos Términos son términos adicionales del Acuerdo de Distribución para Desarrolladores de Google Play, disponible actualmente en https://play.google.com/intl/es_mx/about/developer-distribution-agreement.html (el "DDA", por sus siglas en inglés). Debes aceptar el DDA para poder usar Play Console.
+
+1.5 Play Console cuenta con una versión web, una versión web para móviles y una aplicación de Play Console que Google puede poner a tu disposición. Estas incluyen herramientas de gestión, publicación y fichas, así como información y métricas basadas en los datos derivados del rendimiento en Google Play y en el sistema operativo Android de las aplicaciones asociadas a la Cuenta de Desarrollador.
+
+2. Definiciones
+
+Los términos en mayúscula que no se definan en estos Términos tienen el significado dado en el DDA.
+
+Propietario de la Cuenta: el usuario que creó inicialmente la Cuenta de Desarrollador.
+
+Usuario de Play Console: otros usuarios de la Cuenta de Desarrollador que no son el Propietario de la Cuenta.
+
+Desarrollador: cualquier persona física que use Play Console, ya sea como Propietario de la Cuenta o como Usuario de Play Console.
+
+3. Privacidad e información
+
+3.1. La recogida o el uso de cualquier dato con arreglo al uso que hagas de Play Console se regirá de acuerdo a la Política de Privacidad de Google. Asimismo, más abajo se explican algunos casos especiales que son aplicables a los datos recogidos por Google en relación con Play Console.
+
+3.2 Cuando utilizas Play Console o las API para desarrolladores de Google Play (disponibles en https://developer.android.com/google/play/developer-api), Google recoge determinada "Información de Uso". "Información de Uso" se refiere a la información sobre el uso que haces de Play Console, como las páginas que visitas y los datos que consultas, tus interacciones con las características y funciones de Play Console (incluidas las relacionadas con la gestión de las aplicaciones de la Cuenta de Desarrollador), las acciones que realizas cuando utilizas las API para desarrolladores de Google Play, y tu dirección de correo electrónico de inicio de sesión en Play Console, las direcciones IP y las marcas de tiempo asociadas a estas actividades. Google asociará esta Información de Uso con la Cuenta de Desarrollador.
+
+3.3 Toda la Información de Uso que recoge Google se puede compartir con el Propietario de la Cuenta para, entre otras cosas, permitirle gestionar la Cuenta de Desarrollador, lo que incluye auditar acciones y monitorizar posibles usos inadecuados.
+
+3.4 En caso de que una aplicación se transfiera a una Cuenta de Desarrollador nueva, toda la Información de Uso relacionada con dicha aplicación se asociará a la nueva Cuenta de Desarrollador y se podrá compartir con el Propietario de la nueva Cuenta de Desarrollador, tal y como se describe en la Sección 3.3.
+
+3.5 Google conservará la Información de Uso mientras la Cuenta de Desarrollador asociada permanezca activa. Ningún cambio en tu capacidad para acceder a Play Console o en tus credenciales de inicio de sesión (incluida su desactivación) afectará a este periodo de conservación.
+
+4. Restricciones de uso
+
+No puedes usar Play Console de las siguientes maneras:
+
+Para hacer un uso de Play Console más allá de la funcionalidad prevista indicada en los Términos y en otra documentación de Play Console.
+Para participar en actividades ilegales o comportamientos abusivos, o para promoverlos o fomentarlos.
+Para inhabilitar, interferir o eludir cualquier aspecto de Play Console, o realizar ingeniería inversa sobre estos.
+Para acceder a cualquier otro producto o servicio de Google de un modo que infrinja los términos del servicio de dicho producto o servicio de Google.
+5. Modificación y resolución de los Servicios
+
+5.1 Google puede cambiar, suspender o limitar el acceso a cualquier función o funcionalidad de Play Console, incluidas las métricas de los informes, a su discreción, por cualquier razón y en cualquier momento sin responsabilidad alguna ante ti o el Propietario de la Cuenta.
+
+5.2 Si Google suspende Play Console, te lo notificará con la debida antelación en los casos en los que sea razonablemente posible. Si Google deja de ofrecer alguna de las métricas o funciones de informes principales, procurará notificarlo por escrito con al menos treinta (30) días de antelación a través de mensajes en el producto, correo electrónico, entradas de blog o cualquier otro medio que sea razonable.
+
+5.3 Google puede modificar los Términos en cualquier momento, en cuyo caso te enviará una notificación y te ofrecerá la posibilidad de dejar de utilizar Play Console. Google publicará avisos relacionados con las modificaciones de los Términos en Play Console (play.google.com/console) y te enviará un correo electrónico a tu dirección de contacto. Los cambios no se aplicarán de forma retroactiva. Entrarán en vigor y se considerarán aceptados por ti (a) de forma inmediata para quienes se conviertan en Propietarios de la Cuenta o Usuarios de Play Console después de haber publicado el aviso; o (b) para quienes ya eran Propietarios de la Cuenta y Usuarios de Play Console, en la fecha especificada en la notificación, teniendo en cuenta que deberán haber transcurrido como mínimo treinta (30) días tras la publicación de los cambios (a menos que los cambios consistan en nuevas funciones de Play Console o se trate de cambios realizados por imperativo legal, los cuales entrarán en vigor de forma inmediata).
+
+5.4 Si no aceptas las modificaciones realizadas en los Términos, podrás ejercer tu legítimo derecho a dejar de utilizar Play Console. Aceptas que, si continúas usando Play Console, significará que estás de acuerdo con las modificaciones de los Términos.
+
+5.5 Si infringes cualquiera de los Términos, Google podrá cancelar tu acceso a Play Console. Asimismo, y en la medida en la que la ley lo permita, Google podrá cancelar tu acceso por cualquier motivo previa notificación por escrito con treinta (30) días de antelación.
+
+6. Términos legales generales
+
+6.1 Todas las reclamaciones que se deriven de los Términos o estén relacionados con ellos, o con tu relación con Google de acuerdo con los Términos, se regirán por la legislación aplicable y la jurisdicción establecidas en el DDA.
+
+6.2 Los Términos, los Términos del Servicio de las API para desarolladores de Google Play (si utilizas las API para desarrolladres de Google Play) y el DDA constituyen el acuerdo legal completo entre tú y Google y rigen el uso que haces de Play Console, y sustituyen a cualquier acuerdo previo que exista entre tú y Google en relación con Play Console. La versión en inglés de los Términos prevalecerá sobre sus posibles traducciones, que no serán vinculantes y solo se deberán usar como referencia. En caso de que haya algún conflicto entre los Términos, los Términos del Servicio de las API para desarrolladores de Google Play y el DDA, prevalecerán los Términos.
+
+6.3 Las Secciones 2 (Definiciones), 3 (Privacidad e información) y 6 (Términos legales generales) permanecerán vigentes tras el vencimiento o la resolución de los Términos.
+
+Google Play
+Privacidad
+Términos
+Acerca de Google
+Ayuda
+
+
+
+
+
+
+
+
+----------------------------------------------
+
+
+
+
+Acción requerida: proporcione prueba de permiso o envíe una versión compatible de su aplicación
+
+Esto es lo que debe hacer para ayudar a que su aplicación esté en Google Play:
+
+1. Lea la Sección 8.3 del Acuerdo de distribución para desarrolladores, la política de cumplimiento y nuestro artículo del Centro de ayuda para obtener más detalles.
+
+2. Proporcione un comprobante de permiso válido o realice cambios en su aplicación:
+Si usted es una entidad gubernamental u organización de salud pública, o una de estas entidades encarga o aprueba su aplicación: envíe una prueba válida para verificar la identidad de su organización. Además, si partes de su aplicación están restringidas en función de credenciales de inicio de sesión, membresías, ubicación u otras formas de autenticación, asegúrese de proporcionar credenciales de prueba válidas para que Google pueda revisar su aplicación. Puede proporcionar su prueba de permiso (preferiblemente como un archivo PDF) y cualquier credencial de prueba a través de este formulario.
+
+ Si no es una entidad gubernamental u organización de salud pública (o su aplicación no está encargada o aprobada por una de estas entidades): Realice los cambios apropiados en su aplicación y asegúrese de eliminar las referencias y / o palabras clave relacionadas con COVID-19.
+
+3. Verifique que su aplicación cumpla con todas las demás Políticas del programa para desarrolladores.
+
+4. Si realizó cambios para que su aplicación cumpla con los requisitos, inicie sesión en su Play Console y vuelva a enviar la aplicación compatible con la política.
+
+
+

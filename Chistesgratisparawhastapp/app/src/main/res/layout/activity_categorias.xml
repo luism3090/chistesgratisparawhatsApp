@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".CategoriasActivity">
-
-
 
     <ScrollView
         android:id="@+id/scrol"
@@ -176,7 +175,7 @@
     <!--
         adUnitId    YA EL BUENO
 
-        ca-app-pub-7642244438296434/1571373178
+        ca-app-pub-7642244438296434/3851886699
     -->
 
     <com.google.android.gms.ads.AdView
@@ -186,7 +185,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-7642244438296434/1571373178"
+        app:adUnitId="ca-app-pub-7642244438296434/3851886699"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
 

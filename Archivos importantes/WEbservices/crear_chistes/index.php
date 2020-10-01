@@ -45,7 +45,6 @@
                           <option value="7">Colmos</option>
                           <option value="8">Comidas</option>
                           <option value="9">Computación</option>
-                          <option value="10">Crueles</option>
                           <option value="11">Deportes</option>
                           <option value="12">Doctores</option>
                           <option value="13">En qué se parece... ?</option>
@@ -61,6 +60,7 @@
                           <option value="23">Profesiones</option>
                           <option value="24">Profesores</option>
                           <option value="25">Qué le dice...?</option>
+                          <!-- <option value="27">CORONAVIRUS</option>-->
                          </select>
                           <br>
                 </div>

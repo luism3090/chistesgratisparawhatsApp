@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="LockedOrientationActivity"
-    android:versionCode="1"
-    android:versionName="1.0"
-    package="com.luismolinaapps.chistesgratisparawhastapp">
+    package="com.luismolina.chistesgratisparaWhatsAppV2"
+    android:versionCode="3"
+    android:versionName="2.1"
+    tools:ignore="LockedOrientationActivity">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -18,31 +18,36 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".InfoAplicacionActivity"></activity>
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-7642244438296434~6399908463"/>
+            android:value="ca-app-pub-7642244438296434~6697541887" />
 
-        <activity android:name="com.luismolinaapps.chistesgratisparawhastapp.SplashActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.luismolinaapps.chistesgratisparawhastapp.BusquedaChistesActivity"
-                  android:windowSoftInputMode="adjustResize"
-                  android:screenOrientation="portrait">
-        </activity>
-        <activity android:name="com.luismolinaapps.chistesgratisparawhastapp.FavoritosActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name="com.luismolinaapps.chistesgratisparawhastapp.ChistesCategoriaActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name="com.luismolinaapps.chistesgratisparawhastapp.CategoriasActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name="com.luismolinaapps.chistesgratisparawhastapp.MainActivity"
+        <activity
+            android:name=".BusquedaChistesActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name=".FavoritosActivity"
             android:screenOrientation="portrait" />
-<!--
+        <activity
+            android:name=".ChistesCategoriaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CategoriasActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <!--
         <service
             android:name=".Services.FireBaseId"
             android:enabled="true"
@@ -51,9 +56,9 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-       -->
+        -->
         <service
-            android:name="com.luismolinaapps.chistesgratisparawhastapp.Services.FireBaseServiceMensajes"
+            android:name=".Services.FireBaseServiceMensajes"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

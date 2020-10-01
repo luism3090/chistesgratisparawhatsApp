@@ -5,7 +5,7 @@ include 'conexion.php';
 try
 {
 
-			$query = " select id_categoria,categoria,fecha from categorias ";
+			$query = " select id_categoria,categoria,fecha from categorias ORDER BY id_categoria DESC ";
 
 
 			$resul = mysqli_query($conexion,$query);
