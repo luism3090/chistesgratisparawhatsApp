@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".InfoAplicacionActivity"></activity>
+        <activity android:name=".CrearChisteActivity"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity android:name=".InfoAplicacionActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
@@ -34,7 +36,7 @@
         <activity
             android:name=".BusquedaChistesActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".FavoritosActivity"
             android:screenOrientation="portrait" />

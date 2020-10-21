@@ -60,7 +60,7 @@
                           <option value="23">Profesiones</option>
                           <option value="24">Profesores</option>
                           <option value="25">Qué le dice...?</option>
-                          <!-- <option value="27">CORONAVIRUS</option>-->
+                          <option value="26">VIRUS</option>
                          </select>
                           <br>
                 </div>

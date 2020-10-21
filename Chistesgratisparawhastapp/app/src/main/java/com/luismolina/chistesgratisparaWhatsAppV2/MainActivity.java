@@ -2,7 +2,9 @@ package com.luismolina.chistesgratisparaWhatsAppV2;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.MediaRouteButton;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
@@ -29,6 +31,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -58,6 +61,7 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONArray;
@@ -75,11 +79,6 @@ import static java.lang.Integer.parseInt;
 
 // PUBLICIDAD
 
-
-/*
- import com.google.android.gms.ads.initialization.InitializationStatus;
- import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-*/
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener, ViewTreeObserver.OnScrollChangedListener {
 
@@ -106,6 +105,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     private AlertDialog.Builder builder;
     boolean canExitApp = false;
 
+    boolean show_interstitalAd  = true;
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,11 +119,14 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         //Toast.makeText(getApplicationContext(),index_interstitalAd,Toast.LENGTH_SHORT).show();
 
            if(index_interstitalAd.equals("")){
-               count_interstitalAd = 1;
+               count_interstitalAd = 5;
                SharedPreferences.Editor obj_editor3  = pref_Index_InterstitialAd.edit();
                //obj_editor3.putString("index_interstitalAd", "1");
+
                obj_editor3.putString("index_interstitalAd", String.valueOf(count_interstitalAd));
                obj_editor3.commit();
+
+               //Toast.makeText(getApplicationContext(),index_interstitalAd,Toast.LENGTH_SHORT).show();
            }
            else{
 
@@ -171,8 +175,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                     }, 1000);
 
                 }
-
-
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
             }
@@ -201,9 +203,21 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         final ImageView image_categorias1 = (ImageView)findViewById(R.id.image_categorias1);
         final ImageView image_favoritos1 = (ImageView)findViewById(R.id.image_favoritos1);
         final ImageView image_busqueda1 = (ImageView)findViewById(R.id.image_busqueda1);
+        final ExtendedFloatingActionButton fab_PublicarChistes = (ExtendedFloatingActionButton)findViewById(R.id.fabPublicarChistes);
+
+        fab_PublicarChistes.hide();
 
 
-        // PUBLICIDAD que va aparecer cada vez que se carguen mas chistes
+        fab_PublicarChistes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent crearChiste = new Intent(getApplicationContext(),CrearChisteActivity.class);
+
+                startActivity(crearChiste);
+
+            }
+        });
 
 
         image_categorias1.setOnClickListener(new View.OnClickListener() {
@@ -270,6 +284,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             public void onResponse(String response) {
 
                 final LinearLayout layout_chistes = (LinearLayout)findViewById(R.id.layout_chistes);
+                final ExtendedFloatingActionButton fab_PublicarChistes = (ExtendedFloatingActionButton)findViewById(R.id.fabPublicarChistes);
 
                 ttsManager = new TTSManager();
                 ttsManager.init(getApplicationContext());
@@ -467,7 +482,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                                         Toast.makeText(getApplicationContext(),"Para poder compartir la imagen instale Facebook Messenger", Toast.LENGTH_LONG).show();
                                     }
 
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
 
                                 }
                             });
@@ -498,7 +513,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                                         Toast.makeText(getApplicationContext(),"Ocurrió un problema al compartir el chiste", Toast.LENGTH_LONG).show();
                                     }
 
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
 
                                 }
                             });
@@ -546,7 +561,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                                         Toast.makeText(getApplicationContext(),"Ocurrió un problema al compartir la imagen", Toast.LENGTH_LONG).show();
                                     }
 
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
 
                                 }
                             });
@@ -592,7 +607,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
                                     eliminarChisteFavorito((id_chiste),mipreferencia_user.getString("id_usuario",""),view.getId(),val2,"https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/eliminar_chiste_favorito.php");
 
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
 
                                 }
                             });
@@ -638,7 +653,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
                                     guardarChisteFavorito((id_chiste),mipreferencia_user.getString("id_usuario",""),view.getId(),val2,"https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/guardar_chiste_favorito.php");
 
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
 
                                 }
                             });
@@ -659,7 +674,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
                                     ttsManager.initQueue(String.valueOf(textoChiste));
 
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
 
                                 }
 
@@ -731,6 +746,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                                 masChistes = false;
                             }
 
+
                     }else{
 
                         Modals nuevaModal = new Modals("Mensaje", mensaje, "Ok", MainActivity.this);
@@ -741,7 +757,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
                     // PUBLICIDAD  mostrando Banner
                     mAdView.setVisibility(View.VISIBLE);
-
+                    fab_PublicarChistes.show();
 
                 } catch (JSONException e) {
                     e.printStackTrace();

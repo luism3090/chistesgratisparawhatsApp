@@ -61,6 +61,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 public class FavoritosActivity extends AppCompatActivity implements View.OnTouchListener, ViewTreeObserver.OnScrollChangedListener {
 
@@ -83,6 +84,8 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
     private AdView mAdView;
     private AdView adView2;
     private InterstitialAd mInterstitialAd;
+
+    boolean show_interstitalAd  = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,7 +163,19 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
         final ImageView image_home1 = (ImageView)findViewById(R.id.image_home1);
         final ImageView image_categorias1 = (ImageView)findViewById(R.id.image_categorias1);
         final ImageView image_busqueda1 = (ImageView)findViewById(R.id.image_busqueda1);
+        final ExtendedFloatingActionButton fab_PublicarChistes = (ExtendedFloatingActionButton)findViewById(R.id.fabPublicarChistes);
+        fab_PublicarChistes.hide();
 
+        fab_PublicarChistes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent crearChiste = new Intent(getApplicationContext(),CrearChisteActivity.class);
+
+                startActivity(crearChiste);
+
+            }
+        });
 
         mipreferencia_user = getSharedPreferences("datos_usuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor obj_editor1  = mipreferencia_user.edit();
@@ -230,6 +245,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
             public void onResponse(String response) {
 
                 final LinearLayout layout_chistes = (LinearLayout)findViewById(R.id.layout_chistes);
+                final ExtendedFloatingActionButton fab_PublicarChistes = (ExtendedFloatingActionButton)findViewById(R.id.fabPublicarChistes);
 
                 final TTSManager ttsManager = new TTSManager();
                 ttsManager.init(getApplicationContext());
@@ -427,7 +443,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
                                         Toast.makeText(getApplicationContext(),"Ocurrió un problema al compartir la imagen", Toast.LENGTH_LONG).show();
                                     }
 
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
 
                                 }
                             });
@@ -458,7 +474,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
                                         Toast.makeText(getApplicationContext(),"Ocurrió un problema al compartir el chiste", Toast.LENGTH_LONG).show();
                                     }
 
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
                                 }
                             });
 
@@ -504,7 +520,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
                                         Toast.makeText(getApplicationContext(),"Ocurrió un problema al compartir la imagen", Toast.LENGTH_LONG).show();
                                     }
 
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
 
 
                                 }
@@ -563,7 +579,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
 
                                     //Toast.makeText(getApplicationContext(),String.valueOf(espacio),Toast.LENGTH_SHORT).show();
                                     layout_chistes.removeView(espacio);
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
 
 
                                 }
@@ -609,7 +625,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
                                     //Toast.makeText(getApplicationContext(),textoChiste,Toast.LENGTH_LONG).show();
 
                                     guardarChisteFavorito((id_chiste),mipreferencia_user.getString("id_usuario",""),view.getId(),val2,"https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/guardar_chiste_favorito.php");
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
 
                                 }
                             });
@@ -630,7 +646,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
 
                                     ttsManager.initQueue(String.valueOf(textoChiste));
 
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
 
                                 }
 
@@ -730,6 +746,8 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
 
                     // PUBLICIDAD
                     mAdView.setVisibility(View.VISIBLE);
+
+                    fab_PublicarChistes.show();
 
 
 

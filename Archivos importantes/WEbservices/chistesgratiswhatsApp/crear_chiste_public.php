@@ -5,14 +5,17 @@
 include 'conexion.php';
 
 
-$datos = $_POST['datos'];
+//$datos = $_POST['datos'];
 
-$chiste = $datos['chiste'];
-$id_categoria = $datos['id_categoria'];
+//$chiste = $datos['chiste'];
+//$id_categoria = $datos['id_categoria'];
+
+$chiste = $_REQUEST["chiste"];
 
 mysqli_query($conexion,"SET character_set_client='utf8mb4'");
 mysqli_query($conexion,"SET character_set_results='utf8mb4'");
 mysqli_query($conexion,"set collation_connection='utf8mb4_general_ci'");
+
 
 try
 {
@@ -24,7 +27,7 @@ try
  	   									) 
  	   							values (null,
  	   									'".$chiste."',
- 	   									".$id_categoria.",
+ 	   									50,
  	   									NOW()
  	   									)"; 
 
@@ -36,17 +39,19 @@ try
 	        throw new Exception();
 	    }
 
-	    enviarNotificacion($chiste);
+	  enviarNotificacion($chiste);	
 
-		
-	/*	$resultado_query = array(				
+
+	/*$resultado_query = array(				
 								'error'=> false,
 								'resultado'=> "OK",
-								'mensaje'=>'El chiste ha sido creado correctamente'
-							   );
+								'mensaje'=>'El chiste ha sido creado correctamente',
+								'message_id'=>'El chiste ha sido creado correctamente'
+								
+							   );*/
 
-		echo json_encode($resultado_query);
-		*/
+    //echo json_encode($resultado_query);
+		
 
 }
 catch(Exception $e){
@@ -55,14 +60,14 @@ catch(Exception $e){
 	$resultado_query = array(
 							'error'=> true,
 							'resultado'=> $msjError,
-							'mensaje'=>'Ocurrió un error a la hora de guardar los datos favor de contactar al programador'
+							'mensaje'=>'Ocurrió un error a la hora de enviar el chiste',
+							'message_id'=>'Ocurrió un error a la hora de enviar el chiste'
 						);
 
     echo json_encode($resultado_query);
 
 
 }
-
 
 function enviarNotificacion($chiste){
 
@@ -97,5 +102,3 @@ function enviarNotificacion($chiste){
   return $result;
 
 }
-
-?>

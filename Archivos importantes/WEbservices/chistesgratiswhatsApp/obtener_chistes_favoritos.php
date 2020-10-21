@@ -4,6 +4,9 @@ include 'conexion.php';
 $id_usuario = $_REQUEST["id_usuario"];
 $totalRows = $_REQUEST["totalRows"];
 
+mysqli_query($conexion,"SET character_set_client='utf8mb4'");
+mysqli_query($conexion,"SET character_set_results='utf8mb4'");
+mysqli_query($conexion,"set collation_connection='utf8mb4_general_ci'");
 
 try
 {

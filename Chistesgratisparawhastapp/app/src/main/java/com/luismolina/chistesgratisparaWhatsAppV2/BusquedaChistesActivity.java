@@ -67,6 +67,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 
 public class BusquedaChistesActivity extends AppCompatActivity implements View.OnTouchListener, ViewTreeObserver.OnScrollChangedListener{
@@ -166,9 +167,21 @@ public class BusquedaChistesActivity extends AppCompatActivity implements View.O
         final ImageView image_categorias1 = (ImageView)findViewById(R.id.image_categorias1);
         final ImageView image_favoritos1 = (ImageView)findViewById(R.id.image_favoritos1);
         final EditText et_busqueda_chiste = (EditText)findViewById(R.id.editText);
+        final ExtendedFloatingActionButton fab_PublicarChistes = (ExtendedFloatingActionButton)findViewById(R.id.fabPublicarChistes);
+
+        fab_PublicarChistes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent crearChiste = new Intent(getApplicationContext(),CrearChisteActivity.class);
+
+                startActivity(crearChiste);
+
+            }
+        });
+
 
         mipreferencia_user = getSharedPreferences("datos_usuario", Context.MODE_PRIVATE);
-
 
 
         image_home1.setOnClickListener(new View.OnClickListener() {
@@ -322,6 +335,8 @@ public class BusquedaChistesActivity extends AppCompatActivity implements View.O
 
 
 
+
+
                             // --------------------------------- Creando un table layout como contenedor para colocar los botones de redes sociales ---------------------------------
 
                             LinearLayout contenedor = new LinearLayout(getApplicationContext());
@@ -331,6 +346,7 @@ public class BusquedaChistesActivity extends AppCompatActivity implements View.O
                             contenedor.setPadding(0,-30,0,0);
                             contenedor.setGravity(Gravity.CENTER_HORIZONTAL);
                             layout_chistes.addView(contenedor);
+
 
 
                             // --------------------------------- Creando el boton de Whatsapp -------------------------------------
@@ -454,7 +470,7 @@ public class BusquedaChistesActivity extends AppCompatActivity implements View.O
                                     catch (ActivityNotFoundException ex) {
                                         Toast.makeText(getApplicationContext(),"Ocurrió un problema al compartir la imagen", Toast.LENGTH_LONG).show();
                                     }
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
                                 }
                             });
 
@@ -484,7 +500,7 @@ public class BusquedaChistesActivity extends AppCompatActivity implements View.O
                                         Toast.makeText(getApplicationContext(),"Ocurrió un problema al compartir el chiste", Toast.LENGTH_LONG).show();
                                     }
 
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
                                 }
                             });
 
@@ -530,7 +546,7 @@ public class BusquedaChistesActivity extends AppCompatActivity implements View.O
                                         Toast.makeText(getApplicationContext(),"Ocurrió un problema al compartir la imagen", Toast.LENGTH_LONG).show();
                                     }
 
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
                                 }
                             });
 
@@ -574,7 +590,7 @@ public class BusquedaChistesActivity extends AppCompatActivity implements View.O
                                     //Toast.makeText(getApplicationContext(),textoChiste,Toast.LENGTH_LONG).show();
 
                                     eliminarChisteFavorito((id_chiste),mipreferencia_user.getString("id_usuario",""),view.getId(),val2,"https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/eliminar_chiste_favorito.php");
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
 
                                 }
                             });
@@ -619,7 +635,7 @@ public class BusquedaChistesActivity extends AppCompatActivity implements View.O
                                     //Toast.makeText(getApplicationContext(),textoChiste,Toast.LENGTH_LONG).show();
 
                                     guardarChisteFavorito((id_chiste),mipreferencia_user.getString("id_usuario",""),view.getId(),val2,"https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/guardar_chiste_favorito.php");
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
 
                                 }
                             });
@@ -639,7 +655,7 @@ public class BusquedaChistesActivity extends AppCompatActivity implements View.O
                                     String textoChiste = textViewChiste.getText().toString();
 
                                     ttsManager.initQueue(String.valueOf(textoChiste));
-                                    incrementarIdInterstitial("otro");
+                                    //incrementarIdInterstitial("otro");
 
                                 }
 
@@ -717,7 +733,6 @@ public class BusquedaChistesActivity extends AppCompatActivity implements View.O
 
 
                     }
-
 
 
                 } catch (JSONException e) {

@@ -46,6 +46,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 public class CategoriasActivity extends AppCompatActivity {
 
@@ -160,6 +161,9 @@ public class CategoriasActivity extends AppCompatActivity {
         final ImageView image_home2 = (ImageView)findViewById(R.id.image_home2);
         final ImageView image_favoritos1 = (ImageView)findViewById(R.id.image_favoritos1);
         final ImageView image_busqueda1 = (ImageView)findViewById(R.id.image_busqueda1);
+        final ExtendedFloatingActionButton fab_PublicarChistes = (ExtendedFloatingActionButton)findViewById(R.id.fabPublicarChistes);
+
+        fab_PublicarChistes.hide();
 
         mipreferencia_categoria = getSharedPreferences("datos_categoria", Context.MODE_PRIVATE);
         SharedPreferences.Editor obj_editor0  = mipreferencia_categoria.edit();
@@ -174,6 +178,18 @@ public class CategoriasActivity extends AppCompatActivity {
 
         mostrarAlertaEspera();
         obtenerCategorias("https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/obtener_categorias.php");
+
+
+        fab_PublicarChistes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent crearChiste = new Intent(getApplicationContext(),CrearChisteActivity.class);
+
+                startActivity(crearChiste);
+
+            }
+        });
 
         image_home1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -223,6 +239,7 @@ public class CategoriasActivity extends AppCompatActivity {
             public void onResponse(String response) {
 
                 final LinearLayout layout_categorias = (LinearLayout)findViewById(R.id.layout_categorias);
+                final ExtendedFloatingActionButton fab_PublicarChistes = (ExtendedFloatingActionButton)findViewById(R.id.fabPublicarChistes);
 
                 TTSManager ttsManager = new TTSManager();
                 ttsManager.init(getApplicationContext());
@@ -346,6 +363,8 @@ public class CategoriasActivity extends AppCompatActivity {
 
                     // PUBLICIDAD  mostrando Banner
                     mAdView.setVisibility(View.VISIBLE);
+
+                    fab_PublicarChistes.show();
 
 
                 } catch (JSONException e) {
