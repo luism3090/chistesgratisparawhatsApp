@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    
+    <title>Cambiar configuracion de la app</title>
+    
+  </head>
+  <body>
+<nav class="navbar navbar-dark bg-primary" style="height:50px;background-color:green">
+  <h2 style="margin-top:10px">Cambiar configuración</h2>
+</nav>
+   
+<div class="container">
+    <br>
+      
+
+      <div class="content row" >
+               <div class="col-xs-12">
+                         <label for="cant_show_interstitial">Cantidad show interstical:</label>
+                         <input type="number" class="form-control" id="cant_show_interstitial" name="cant_show_interstitial" />
+                </div>
+                
+        </div>
+
+        <br><br>
+
+        <div class="content row" >
+
+           <div class="col-xs-12">
+                           <label for="band_show_boton_crear_chiste">Elija si se va a mostrar el boton de crear chiste:</label>
+                           <select class="form-control" id="band_show_boton_crear_chiste" name="band_show_boton_crear_chiste">
+                            <option value="1">Si</option>
+                            <option value="0">No</option>
+                           </select>
+                            
+                  </div>
+
+        </div>
+
+        <br><br>
+
+         <div class="content row" >
+                <div class="col-xs-4">
+                         <label for="band_new_version_app">Elija si se muestra mensaje para nueva actualizacion:</label>
+                         <select class="form-control" id="band_new_version_app" name="band_new_version_app">
+                          <option value="0">No</option>
+                          <option value="1">Si con mensaje Toast</option>
+                          <option value="2">Si con mensaje de dialog</option>
+                         </select>
+                          
+                </div>
+
+                <div class="col-xs-4">
+                         <label for="new_version_app">Escriba aquí la nueva versión de la app:</label>
+                          <input type="text" class="form-control" id="new_version_app" name="new_version_app" />
+                          
+                </div>
+
+                <div class="col-xs-4">
+                         <label for="mjs_new_version_app">Mensaje que se mostrará sobre la nueva versión:</label>
+                         <textarea class="form-control" maxlength="250" id="mjs_new_version_app" name="mjs_new_version_app" rows="5" cols="30"></textarea>
+                          
+                </div>
+        </div>
+      
+      <br>
+
+        <div class="content row" >
+
+               <div class="col-xs-4">
+                         <label for="band_old_version_app">Elija si se muestra mensaje para una versión anterior:</label>
+                         <select class="form-control" id="band_old_version_app" name="band_old_version_app">
+                            <option value="0">No</option>
+                            <option value="1">Si (Forza a que el usuario actualice la app)</option>
+                         </select>
+                          
+                </div>
+
+                <div class="col-xs-4">
+                         <label for="old_version_app">Escriba aquí la versión muy anterior de la app:</label>
+                          <input type="text" class="form-control" id="old_version_app" name="old_version_app" />
+                          
+                </div>
+
+                <div class="col-xs-4">
+                         <label for="mjs_old_version_app">Mensaje que se mostrará al usuario para que actualice forzosamente :</label>
+                         <textarea class="form-control" maxlength="250" id="mjs_old_version_app" name="mjs_old_version_app" rows="5" cols="30"></textarea>
+                          
+                </div>
+                      
+        </div>
+
+                <br>
+
+
+        <div class="content row" >
+               <div class="col-xs-12">
+                         <label for="total_chistes_por_dia">Cantidad total de chistes por día que podrán crear los usuarios:</label>
+                         <input type="number" class="form-control" id="total_chistes_por_dia" name="total_chistes_por_dia" />
+                </div>
+                
+        </div>
+        <br><br>
+
+        <div class="content row" >
+               <div class="col-xs-12">
+                         <label for="band_crear_chistes_revision">Elija si los chistes creados pasaran a formulario de revisión:</label>
+                         <select class="form-control" id="band_crear_chistes_revision" name="band_crear_chistes_revision">
+                            <option value="0">No</option>
+                            <option value="1">Si</option>
+                         </select>
+                </div>
+                
+        </div>
+
+        <br><br>
+        
+        
+          <div class="content row" >
+               <div class="col-xs-12">
+                  <center>
+                    <button id='btnCambiarConfiguracioApp' name="btnCambiarConfiguracioApp"  class="btn btn-primary" style="width:250px;height:50px;font-size:20px;font-weight:bold;background-color:green;cursor:pointer;">Cambiar configuracion</button>
+                  </center>
+               </div>
+          </div>
+  
+</div>
+
+                <br>
+                <br>
+                <br>
+
+     
+  
+<div id="modalAlertaSuccess" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false" >
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Alerta</h4>
+      </div>
+      <div class="modal-body">
+        <center><p><i class="fas fa-check-circle fa-lg"></i> <label class='mldMsj'></label> </p></center>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnMd">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="modalAlertaWarning" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false" >
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Alerta</h4>
+      </div>
+      <div class="modal-body">
+        <center><p><i class="fas fa-exclamation-circle fa-lg"></i> <label class='mldMsj'></label> </p></center>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnMd">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="modalAlertaError" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false" >
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Alerta</h4>
+      </div>
+      <div class="modal-body">
+        <center><p><i class="fas fa-times fa-lg"></i> <label class='mldMsj'></label> </p></center>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnMd">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="cambiar_initialConfigApp.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

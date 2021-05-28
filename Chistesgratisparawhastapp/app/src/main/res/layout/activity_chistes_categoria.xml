@@ -8,7 +8,7 @@
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabPublicarChistes"
-        android:layout_width="110dp"
+        android:layout_width="112dp"
         android:layout_height="35dp"
         android:layout_gravity="bottom|right"
         android:layout_marginBottom="60dp"
@@ -180,7 +180,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-7642244438296434/3851886699"
+        app:adUnitId="cca-app-pub-7642244438296434/3851886699"
         app:layout_anchor="@+id/scrol"
         app:layout_anchorGravity="bottom|center"
         app:layout_constraintBottom_toBottomOf="parent"

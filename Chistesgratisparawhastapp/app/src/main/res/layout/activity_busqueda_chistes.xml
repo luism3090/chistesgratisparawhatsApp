@@ -10,7 +10,7 @@
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabPublicarChistes"
-        android:layout_width="110dp"
+        android:layout_width="112dp"
         android:layout_height="35dp"
         android:layout_gravity="bottom|right"
         android:layout_marginBottom="60dp"

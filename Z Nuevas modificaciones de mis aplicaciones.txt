@@ -1,15 +1,15 @@
-1. Hacer lo del ping del video de App Rentables   (YA)
+1. Hacer lo del ping del video de App Rentables  --->  (YA)
 
 
 
-2. poner un texto con el link de la aplicacion cuando los usuarios compartan el chiste  (YA)
+2. poner un texto con el link de la aplicacion cuando los usuarios compartan el chiste  --->  (YA)
 
 
 descarga mas chistes aquí ---> https://play.google.com/store/apps/details?id=com.luismolina.chistesgratisparaWhatsAppV2
 
 
 
-3. cuando se le dé atras y esté a punto de salir de la aplicación ponerle   (YA)
+3. cuando se le dé atras y esté a punto de salir de la aplicación ponerle  --->  (YA)
 
 una modal que diga :
 
@@ -31,4 +31,330 @@ Si   No
 
 4. 
 
-ponerle un boton de compartir aplicación  (YA)
+ponerle un boton de compartir aplicación  ---> (YA)
+
+
+
+---------------------------------------------------------------------------------
+
+Nuevas modificaciones  09-05-2021
+
+
+1. ---> (YA)
+
+
+La condicion de la cantidad total de chistes por dia si se cumple debe hacer que el boton 
+de publicar chistes mande la condicion desde el primer click en el boton 
+
+
+2.  ---> (YA)
+
+Quitar el anuncio del video recompenzado y :  
+
+ - colocarle mejor un intertical recompensado o un interstical normal 
+
+ Nota: no forzar a que tengan que ver un anuncio para publicar el chiste
+
+
+
+Datos para hacer pruebas en los chiste a nivel base de datos 
+
+2020-03-02 22:58:57
+
+2020-03-02 22:55:31
+
+2021-05-02 01:54:50
+
+2021-05-02 01:50:50
+
+
+update total_chistes set cantidad = 2
+
+UPDATE `cant_mostrar_ad_interstitial` SET `cantidad` = 5
+
+drop table cant_mostrar_ad_interstitial
+
+cant_mostrar_Ad_Interstitial
+
+
+
+2021-05-05 04:33:38
+
+2021-05-05 04:33:42
+
+
+
+------------------------------------------------------------------------------------------
+
+Estos campos fueron agregados en la version 2.3 entonces esta será la version mas vieja 
+
+
+config_app 
+
+campos agregados :
+
+
+cant_show_interstitial   
+band_show_boton_crear_chiste
+
+
+band_new_version_app
+new_version_app
+mjs_new_version_app
+
+
+band_old_version_app
+old_version_app
+mjs_old_version_app
+
+total_chistes_por_dia
+
+band_crear_chistes_revision
+
+
+
+-- querys
+
+update config_app set cant_show_interstitial = 5
+
+update config_app set band_show_boton_crear_chiste = '1'
+
+update config_app set band_new_version_app = '1'
+
+update config_app set new_version_app = '2.2'
+
+update config_app set mjs_new_version_app = 'Hay una nueva versión de chistes gratis para whatsApp descargala ya desde google play'
+
+update config_app set band_old_version_app = '0'
+
+update config_app set old_version_app = '2.0'
+
+update config_app set mjs_new_version_app = 'Debes actualizar la aplicación desde la google play para poder seguirla usando'
+
+
+update config_app set total_chistes_por_dia = 2
+
+
+update config_app set band_crear_chistes_revision = '1'
+
+
+
+
+--------------------------------------------- comentarios de los campos: -----------------------------------------
+
+
+cant_show_interstitial --> cantidad de veces para que apareza el interstitial por defecto tiene 5
+
+------
+
+band_show_boton_crear_chiste -->  	0 = no hace ninguna condicion (omite la funcionalidad)
+									1 = si - Oculta el boton
+
+---------
+
+
+band_new_version_app --> esta bandera mostrara el tipo de mensaje al usuarios para informarle de que ya hay una nueva actualizacion que puede ser un mensaje Toast o un mensaje en forma de modal
+
+0 = No : no hace la condicion para mandar los mensajes  (omite la funcionalidad)
+
+1 = mensaje por medio de toast
+
+2 = muestra el mensaje por medio de una modal con opciones cancelar y actualizar 
+
+
+
+------
+
+new_version_app -->  colocar la nueva version de la app (2.2 o 2.3 o 2.4 o 2.5) ya subida a google play y compararla con la que tiene el usuario en la aplicacion esto ya esta en el codigo (bajo una condicion) esta condicion se verá efectuada siempre  cuando este activa alguna de las banderas que le corresponden 
+
+
+------
+
+mjs_new_version_app --> Mensaje a salir si hay una nueva version de la app (Al cumplirse una condicion)
+
+Mensaje =  'Hay una nueva versión de chistes gratis para whatsApp descargala ya desde google play'
+
+------
+
+band_old_version_app --> Bandera para condicionar que ya actualicen la aplicacion si la version del usuario ya esta muy viejita  
+
+0 = no --> No hace la funcionalidad de comparar la version mas vieja de la app con la version que tiene el usuario
+
+1 = si  :
+
+(CASO EXTREMO ya que si tienen una version mu viejita los obligara actualizar afuerza) 
+ 
+  muestra el mensaje en una modal con la unica opcion de actualizar y ya no deja entrar a la app (caso extremo)
+
+
+
+------
+
+old_version_app  -->  esta es la version que queremos que si el usuario la tiene instalada en su celular 
+                            al ser una version ya muy vieja queremos que la atualice 
+
+ de momento la version mas vieja es la 2.0
+
+------
+
+mjs_old_version_app --> mensaje de cuando ya debe actualizar la app afuerza porque ya esta muy vieja esa version
+
+mensaje = 'Debes actualizar la aplicación desde la google play para poder seguirla usando'
+
+-------
+
+total_chistes_por_dia --> cantidad de chistes por dia que se dejaran publicar por defecto tiene 2
+
+
+-------
+
+band_crear_chistes_revision -->  verificar si los chsites pasan a formulario de revision antes de ser publicados o no y se publican en automatico
+
+1 = Si ser verfican
+
+0 = no se verifican
+
+--------------------------------------------------------------
+
+
+
+
+
+pruebas
+
+bandera_new_version_app = 0  new_version_app = 2.2   version_app = 2.2    // no mostrar nada
+
+bandera_new_version_app = 0  new_version_app = 2.3   version_app = 2.2    // no mostrar nada
+
+bandera_new_version_app = 1  new_version_app = 2.2   version_app = 2.2    // no mostrar nada
+
+bandera_new_version_app = 1  new_version_app = 2.3   version_app = 2.2    // mostrar Toast
+
+bandera_new_version_app = 2  new_version_app = 2.3   version_app = 2.2    // mostrar modal con opciones 
+
+
+
+
+
+
+
+
+1.  (YA)
+
+Esconder el boton de crear chiste por si eso no trae buenos resultados para la aplicacion y se tenga que quitar de forma rapida esa funcionalidad (Todo controlado desde base de datos)
+
+aunque lo mejor seria quitar esa funcionalidad del boton (osea quitar el boton) desde el codigo para que pese menos la aplicacion 5 megas menos jaja (Pero eso seria mas tardado)  (Todo controlado desde base de datos)
+
+
+2. (YA)
+
+crear una condicion que tenga una bandera para cuando se necesite enviarles un aviso (Toast) de que actualicen la applicacion porque hay una nueva version disponible de la app 
+
+ 
+	2.1 (YA)
+
+	 en un dado caso (ya extremo) poner una bandera para que no puedan usar la app si no la actualizan 
+
+
+
+3. (YA)
+
+ crear un modulo para poder enviar notificaciones sin tener que ser un chiste
+ para informales cosas a los usuarios sobre actualizaciones o mejoras de la app etc. 
+
+
+		 1- Envia la notificacion normal del chiste en la app  (YA)
+
+		 
+		 2. Crear un formulario web para poder enviar las notificaciones de los siguientes temas: (YA)
+
+		 	- Alguna Actualizacion disponible  (Redireccionar hacia la google play)
+		 	- Alguna Novedad en la app (Redireccionar hacia la misma app)
+		 	- Alguna Advertencia (Redireccionar hacia la misma app)
+		 	- Algun informacion o mensaje (Redireccionar hacia la misma app)
+
+
+4.  (YA)
+
+	crear un modulo para que ahi se publiquen primero los chistes enviados por los usuarios
+    y ya despues un moderador aceptar los chistes para que ya se envien a la app y se envie
+    la notificacion 
+
+
+
+Ya esta la versión 2.3 de la aplicacion funcionando 27-05-2021 ya quedaron todos los puntos 1. Esconder el boton crear chiste, 2. bandera que muestra un toads y una modal (en caso extremo) para que actualicen app, 3. modulo para crear notificaciones y mandarles cierta informacion a los usuarios, 4. formulario de revision y publicación de chistes 
+
+
+band_crear_chistes_revision    valores '1' = si '2' = no
+
+1 = el chiste debe pasar a revision antes de ser publicado y enviando su notificación 
+2 = El chiste se publica automaticamente sin tener que pasar por revision
+
+
+update config_app set band_crear_chistes_revision = '1'
+
+id_chiste int unsigned increment
+chiste varchar 300
+
+
+
+
+------------------------------------------------------------------ 
+
+
+:::::::::::::::::::::::::::::::: ultimas notas ::::::::::::::::::::::::::::::::::::::::::
+
+
+1. Antes de que muriera el hosting anterior los usuarios tenian el topic = 'humor' en la app android 
+
+
+	topic para todos los usuarios de la app = "humor" 
+	topic para hacer pruebas = 'pruebas'
+	topic para mandar notificaciones de informacion = 'informacion'
+	topic para los chistes en revision = 'revision'   (Este solo lo debo tener yo en mi app)
+
+		- crear_chiste_public_new -->  Para notificaciones desde la app (boton crear chistes)  
+		- crear_chistes_revision --> Para notificaciones de los chistes en revision (formulario web services)
+		- crear_notificacion_app --> para notificaciones informativas (formulario web services)
+		- crea_chistes.php --> Para notificaciones de los chistes que crea el admin (formulario web services)
+
+
+	
+	* Asi que para que le lleguen notificaciones a los de mas usuarios con la app se debe cambiar el topic de pruebas a diversion en los archivos de web services siguientes :
+
+
+NOTA IMPORTANTE : para enviarles notificaciones a los usuarios anteriores se les debe poner el topic = "humor" y comentar 
+
+OTRA NOTA IMPORTANTE: 
+
+para los usuarios anteiores hay que quitar la linea del topic revision en MainActivity y FireBaseServiceMensajes
+
+FireBaseServiceMensajes :
+
+if(topic.equals("diversion") || topic.equals("revision")){  // quitar el topic revision para la app que se enviarà a la google play
+
+MainActivity :
+
+FirebaseMessaging.getInstance().subscribeToTopic("revision"); // quitar el topic revision para la app que se enviarà a la google play
+
+	
+
+		- crear_chiste_public_new -->  topic = 'pruebas' (por cuestiones de practicas) (por defecto sería 'diversion')
+		- crear_chistes_revision --> topic = 'diversion' (por defecto se debe quedar en 'diversion') 
+		- crear_notificacion_app --> topic = 'pruebas' (por cuestiones de practicas) (por defecto sería 'informacion')
+		- crea_chistes.php --> topic = 'pruebas' (por cuestiones de practicas) (por defecto sería 'diversion')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

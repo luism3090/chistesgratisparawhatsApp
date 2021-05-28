@@ -12,13 +12,11 @@
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabPublicarChistes"
-        android:layout_width="110dp"
+        android:layout_width="112dp"
         android:layout_height="35dp"
         android:layout_gravity="bottom|right"
         android:layout_marginBottom="60dp"
         android:text="Crear Chiste"
-        android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textMultiLine"
-        android:imeOptions="actionSend|flagNoEnterAction"
         android:textSize="9dp"
         android:theme="@style/MyMaterialTheme"></com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
 
@@ -74,21 +72,6 @@
     <!-- descomentar -->
 
     <!-- -->
-
-   <!--
-         adUnitId   DE PRUEBA
-
-         ca-app-pub-3940256099942544/6300978111
-
-
-   -->
-
-    <!--
-        adUnitId    YA EL BUENO
-
-        ca-app-pub-7642244438296434/3851886699
-
-    -->
 
 
     <LinearLayout
@@ -223,7 +206,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
 
+    <!--
+          adUnitId   DE PRUEBA
 
+          ca-app-pub-3940256099942544/6300978111
+
+         adUnitId    YA EL BUENO
+
+         ca-app-pub-7642244438296434/3851886699
+
+    -->
 
 
     <!-- -->

@@ -8,7 +8,7 @@
     android:background="@color/white"
     tools:context=".CrearChisteActivity">
 
-    <EditText
+    <com.rockerhieu.emojicon.EmojiconEditText
         android:id="@+id/edtCrearChiste"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,14 +26,37 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.068" />
 
+    <FrameLayout
+        android:id="@+id/emojicons"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_below="@+id/edtCrearChiste"
+        android:layout_alignParentEnd='true'
+        android:layout_alignParentRight='true'
+        android:layout_gravity="bottom"
+        android:visibility="invisible"
+
+        />
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabEmoticones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|right"
+        android:layout_marginRight="175dp"
+        android:layout_marginBottom="15dp"
+        app:icon="@drawable/ic_emoticon_risa"
+        android:theme="@style/MyMaterialTheme"></com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabEnviarChistes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="40dp"
+        android:layout_gravity="center|right"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp"
         android:maxLines="540"
         android:text="Enviar Chiste"
         android:textSize="15dp"

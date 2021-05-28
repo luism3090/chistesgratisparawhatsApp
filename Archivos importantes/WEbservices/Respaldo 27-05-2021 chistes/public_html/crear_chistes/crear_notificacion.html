@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    
+    <title>Crear notificación de chistes para WhatsApp</title>
+    
+  </head>
+  <body>
+<nav class="navbar navbar-dark bg-primary" style="height:50px;background-color:green">
+  <h2 style="margin-top:10px">Crear notificación</h2>
+</nav>
+   
+<div class="container">
+    <br>
+      
+
+      <div class="content row" >
+               <div class="col-xs-12">
+                         <label for="slTitulo">Elija el titulo de la notificación:</label>
+                         <select class="form-control" id="slTitulo" name="slTitulo">
+                          <option value="1" selected>Nueva actualización</option>
+                          <option value="2">Novedades</option>
+                          <option value="3">Información</option>
+                          <option value="4">Advertencia</option>
+                          <option value="5">Precaución</option>
+                         </select>
+                          <br>
+                </div>
+                      
+        </div>
+      
+        <div class="content row" >
+               <div class="col-xs-12">
+                       <div class="form-group">
+                         <label for="txtContenido">Escriba el contenido de la notificación:</label>
+                         <textarea class="form-control" id="txtContenido" name="txtContenido" rows="10" cols="50"></textarea>
+                          <br>
+                        </div>
+                </div>
+                      
+        </div>
+
+        
+        
+        <br>
+          <div class="content row" >
+               <div class="col-xs-12">
+                  <center>
+                    <button id='btnCrearNotificacion' name="btnCrearNotificacion"  class="btn btn-primary" style="width:200px;height:50px;font-size:20px;font-weight:bold;background-color:green;cursor: pointer;">Crear Notificación</button>
+                  </center>
+               </div>
+          </div>
+  
+</div>
+     
+  
+<div id="modalAlertaSuccess" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false" >
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Alerta</h4>
+      </div>
+      <div class="modal-body">
+        <center><p><i class="fas fa-check-circle fa-lg"></i> <label class='mldMsj'></label> </p></center>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnMd">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="modalAlertaWarning" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false" >
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Alerta</h4>
+      </div>
+      <div class="modal-body">
+        <center><p><i class="fas fa-exclamation-circle fa-lg"></i> <label class='mldMsj'></label> </p></center>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnMd">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="modalAlertaError" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false" >
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Alerta</h4>
+      </div>
+      <div class="modal-body">
+        <center><p><i class="fas fa-times fa-lg"></i> <label class='mldMsj'></label> </p></center>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnMd">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="crear_notificacion.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

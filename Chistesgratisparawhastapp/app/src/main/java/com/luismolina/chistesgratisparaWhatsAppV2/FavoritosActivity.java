@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -19,6 +21,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.StrictMode;
+import android.text.Html;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -67,8 +70,6 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
 
     ProgressDialog dialog;
 
-    TTSManager ttsManager = null;
-
     SharedPreferences mipreferencia_user, mipreferencia_TotalRows, mipreferencia_categoria;
     SharedPreferences pref_Index_InterstitialAd;
 
@@ -85,7 +86,10 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
     private AdView adView2;
     private InterstitialAd mInterstitialAd;
 
-    boolean show_interstitalAd  = true;
+    // cambio
+    SharedPreferences pref_config_AppChistes;
+    int cant_max_Ad = 0;
+    String band_show_boton_crear_chiste = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +98,14 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
 
         pref_Index_InterstitialAd = getSharedPreferences("indexPublicidad", Context.MODE_PRIVATE);
         String index_interstitalAd = pref_Index_InterstitialAd.getString("index_interstitalAd","");
+
+        // cambio
+        pref_config_AppChistes = getSharedPreferences("configAppChistes", Context.MODE_PRIVATE);
+
+        band_show_boton_crear_chiste  = pref_config_AppChistes.getString("band_show_boton_crear_chiste","");
+        cant_max_Ad = Integer.parseInt(pref_config_AppChistes.getString("cant_show_interstitial",""));
+
+        //Toast.makeText(getApplicationContext(),index_interstitalAd,Toast.LENGTH_SHORT).show();
 
         if(index_interstitalAd.equals("")){
             count_interstitalAd = 1;
@@ -104,7 +116,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
         }
         else{
             int a = Integer.parseInt(index_interstitalAd);
-            if(a<=4){
+            if(a<= (cant_max_Ad-1)){   // a<=4  // cambio
                 incrementarIdInterstitial("activity");
             }
         }
@@ -133,7 +145,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
                     mAdView.setVisibility(View.GONE);
                     //Toast.makeText(getApplicationContext(), showAdIntertiWhatsOrScroll+"jajaja", Toast.LENGTH_LONG).show();
                     mostrarAlertaCargando();
-                    obtenerChistesFavoritos("https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/obtener_chistes_favoritos.php",false);
+                    obtenerChistesFavoritos("https://chistesgratis.lmeapps.com/chistesgratiswhatsApp/obtener_chistes_favoritos.php",false);
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -170,9 +182,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
             @Override
             public void onClick(View view) {
 
-                Intent crearChiste = new Intent(getApplicationContext(),CrearChisteActivity.class);
-
-                startActivity(crearChiste);
+                ObtenerTotalChistesPorDia("https://chistesgratis.lmeapps.com/crear_chistes/obtener_total_chistes_por_dia.php");
 
             }
         });
@@ -188,7 +198,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
         obj_editor2.commit();
 
         mostrarAlertaEspera();
-        obtenerChistesFavoritos("https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/obtener_chistes_favoritos.php",true);
+        obtenerChistesFavoritos("https://chistesgratis.lmeapps.com/chistesgratiswhatsApp/obtener_chistes_favoritos.php",true);
 
 
         image_home1.setOnClickListener(new View.OnClickListener() {
@@ -375,7 +385,9 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
                                     String index_interstitalAd = pref_Index_InterstitialAd.getString("index_interstitalAd","");
                                     int a = Integer.parseInt(index_interstitalAd);
 
-                                    if(a>=5){
+                                    //Toast.makeText(getApplicationContext(),String.valueOf(a),Toast.LENGTH_SHORT).show();
+
+                                    if(a>=cant_max_Ad){ // a>=5  // cambio
 
                                         // publicidad
 
@@ -561,7 +573,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
                                     // OBTENIENDO EL ID DEL TEXVIEW DEL CHISTE PARA LLEVARLO A LA TABLA DE FAVORITOS
                                     int id_chiste = val - 1000000;
 
-                                    eliminarChisteFavorito((id_chiste),mipreferencia_user.getString("id_usuario",""),view.getId(),val2,"https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/eliminar_chiste_favorito.php");
+                                    eliminarChisteFavorito((id_chiste),mipreferencia_user.getString("id_usuario",""),view.getId(),val2,"https://chistesgratis.lmeapps.com/chistesgratiswhatsApp/eliminar_chiste_favorito.php");
 
                                     // obteniendo el id del linear layout padre que es el mismo que el del textView del chiste id_chiste
                                    // int idContenedorPadre = ((View) view.getParent()).getId();
@@ -624,7 +636,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
                                     //String textoChiste = textViewChiste.getText().toString();
                                     //Toast.makeText(getApplicationContext(),textoChiste,Toast.LENGTH_LONG).show();
 
-                                    guardarChisteFavorito((id_chiste),mipreferencia_user.getString("id_usuario",""),view.getId(),val2,"https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/guardar_chiste_favorito.php");
+                                    guardarChisteFavorito((id_chiste),mipreferencia_user.getString("id_usuario",""),view.getId(),val2,"https://chistesgratis.lmeapps.com/chistesgratiswhatsApp/guardar_chiste_favorito.php");
                                     //incrementarIdInterstitial("otro");
 
                                 }
@@ -746,14 +758,15 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
 
                     // PUBLICIDAD
                     mAdView.setVisibility(View.VISIBLE);
-
-                    fab_PublicarChistes.show();
+                    if(band_show_boton_crear_chiste.equals("1")){
+                        fab_PublicarChistes.show();
+                    }
 
 
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "cayo en el catch", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "ocurrió un error a la hora de obtener los datos", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -834,7 +847,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "cayo en el catch", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "ocurrió un error a la hora de obtener los datos", Toast.LENGTH_LONG).show();
                 }
 
 
@@ -894,7 +907,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "cayo en el catch", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "ocurrió un error a la hora de obtener los datos", Toast.LENGTH_LONG).show();
                 }
 
 
@@ -952,7 +965,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
                     String index_interstitalAd = pref_Index_InterstitialAd.getString("index_interstitalAd","");
                     int a = Integer.parseInt(index_interstitalAd);
 
-                    if(a>=5){
+                    if(a>=cant_max_Ad){  // a>=5 // cambio
 
                         incrementarIdInterstitial("whatsApp");
                         showAdIntertiWhatsOrScroll = "Scroll";
@@ -962,7 +975,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
                     }
                     else{
                         mostrarAlertaCargando();
-                        obtenerChistesFavoritos("https://practicaproductos.000webhostapp.com/chistesgratiswhatsApp/obtener_chistes_favoritos.php",false);
+                        obtenerChistesFavoritos("https://chistesgratis.lmeapps.com/chistesgratiswhatsApp/obtener_chistes_favoritos.php",false);
                         incrementarIdInterstitial("otro");
 
                         new Handler().postDelayed(new Runnable() {
@@ -1011,7 +1024,7 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
 
         if(accion.equals("otro"))  // cuando se pulse un boton DIFERENTE a Whastapp
         {
-            if( a <= 4 ){
+            if( a <= (cant_max_Ad-1) ){  // a <= 4 // cambio
                 count_interstitalAd = Integer.parseInt(index_interstitalAd) + 1;
                 SharedPreferences.Editor obj_editor3  = pref_Index_InterstitialAd.edit();
                 obj_editor3.putString("index_interstitalAd", String.valueOf(count_interstitalAd));
@@ -1019,15 +1032,17 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
             }
         }
         else if(accion.equals("whatsApp") || accion.equals("activity")){
-            if(a>=5){
+            if(a>=cant_max_Ad){ // a>=5 // cambio
                 SharedPreferences.Editor obj_editor3  = pref_Index_InterstitialAd.edit();
                 obj_editor3.putString("index_interstitalAd","1");
                 obj_editor3.commit();
+
             }else{
                 count_interstitalAd = Integer.parseInt(index_interstitalAd) + 1;
                 SharedPreferences.Editor obj_editor3  = pref_Index_InterstitialAd.edit();
                 obj_editor3.putString("index_interstitalAd", String.valueOf(count_interstitalAd));
                 obj_editor3.commit();
+
             }
         }
 
@@ -1083,4 +1098,75 @@ public class FavoritosActivity extends AppCompatActivity implements View.OnTouch
         }
     }
 
+    public void ObtenerTotalChistesPorDia(String url){
+
+        com.android.volley.toolbox.StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+
+                //ocultarAlertaEspera();
+                try {
+
+                    JSONObject responseJSON = new JSONObject(response);
+
+                    //String message_id = "234";
+                    String mensaje = responseJSON.getString("mensaje");
+
+                    JSONArray array = responseJSON.getJSONArray("mensaje");
+                    JSONObject arrayChistes = array.getJSONObject(0);
+
+                    int cant_chistes_dia_creados = Integer.parseInt(arrayChistes.getString("cant_chistes_dia"));
+                    int totalChistesPorDia_BD = Integer.parseInt(arrayChistes.getString("total_chistes"));
+
+                    if(totalChistesPorDia_BD > cant_chistes_dia_creados)
+                    {
+                        Intent crearChiste = new Intent(getApplicationContext(),CrearChisteActivity.class);
+
+                        startActivity(crearChiste);
+                    }
+                    else
+                    {
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(FavoritosActivity.this);
+                        builder.setMessage(Html.fromHtml("Ya no se pueden publicar más chistes por hoy"));
+                        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        builder.show();
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "ocurrió un error a la hora de obtener los datos", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Error al conectarse a internet", Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parametros = new HashMap<String,String>();
+
+                //String id_usuario = mipreferencia_user.getString("id_usuario","");
+
+                // parametros.put("chiste",chiste);
+
+                return parametros;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+    }
 }
