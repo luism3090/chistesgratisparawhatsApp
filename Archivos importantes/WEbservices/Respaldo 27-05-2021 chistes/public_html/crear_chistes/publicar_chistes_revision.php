@@ -56,7 +56,7 @@ $resul = mysqli_query($conexion,$query);
                                           <tr>
                                               <td><?php echo $row['id_chiste']; ?></td>
                                               <td>
-                                                  <textarea maxlength="250" id="txtChisteRevision" name="txtChisteRevision" rows="5" cols="50"><?php echo $row['chiste']; ?></textarea>
+                                                  <textarea maxlength="552" id="txtChisteRevision" name="txtChisteRevision" rows="5" cols="50" ><?php echo $row['chiste']; ?></textarea>
                                                 </td>
                                                 <td><?php echo $row['fecha']; ?></td>
                                                 <td> 

@@ -25,7 +25,7 @@
                <div class="col-xs-12">
                        <div class="form-group">
                          <label for="txtChiste">Escriba el chiste:</label>
-                         <textarea class="form-control" id="txtChiste" name="txtChiste" rows="10" cols="50"></textarea>
+                         <textarea class="form-control" id="txtChiste" name="txtChiste" rows="10" cols="50" maxlength="552"></textarea>
                           <br>
                         </div>
                 </div>

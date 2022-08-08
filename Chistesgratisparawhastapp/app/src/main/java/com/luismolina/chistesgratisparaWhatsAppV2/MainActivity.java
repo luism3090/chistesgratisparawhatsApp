@@ -385,6 +385,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                                     textViewChiste.buildDrawingCache();  // Creando un Bitmap del Texview el chiste
                                     Uri url = saveImageExternal(textViewChiste.getDrawingCache());
 
+
                                     if(Build.VERSION.SDK_INT>=24){
                                         try{
                                             Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
@@ -1082,14 +1083,17 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         Uri uri = null;
         try {
             File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "chiste.png");
+
             FileOutputStream stream = new FileOutputStream(file);
-            image.compress(Bitmap.CompressFormat.PNG, 90, stream);
+            image.compress(Bitmap.CompressFormat.JPEG, 90, stream);
             stream.close();
             uri = Uri.fromFile(file);
         } catch (IOException e) {
             //Log.d(TAG, "IOException while trying to write file for sharing: " + e.getMessage());
             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
         }
+
+
         return uri;
     }
 
@@ -1129,6 +1133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
 
+    /*
     @Override
     public void onBackPressed() {
         //if(cont_back == 0){
@@ -1185,6 +1190,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         }
 
     }
+    */
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
