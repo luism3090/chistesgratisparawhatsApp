@@ -1,0 +1,59 @@
+Nueva informacion de la actulizacion de la app despues de que se actualizo
+de solo chistes graciosos a chistes gratis para whastapp a la version 2.7:
+
+
+puntos que se actualizaron:
+
+1.- Aqui Se resolvio el problema con las notificaciones cuando en android 10 en adelante no se mostraban (ahora nueva version 2.7 de la app)
+
+
+2.- Se resolvio el problema cuando no se podia compartir el chiste en 
+imagen igual en version de android 10 en adelante (ahora nueva version 2.7 de la app)
+
+3. Se le actulizo y descargo el SDK 33 para que la app estuviera actualizada
+
+
+informacion en la google play:
+
+Nombre de la app: Chistes Gratis para WhatsApp
+
+Descripcion breve: 
+
+Chistes Graciosos, Buenísimos, Geniales, Humor, Picantes, Cortos
+
+Descripción completa :
+
+¿Quieres liberarte del estrés y el aburrimiento en cualquier momento?
+
+¿Te gustaría disfrutar de una aplicación muy fácil de usar con los mejores chistes y que además se estén publicando nuevos chistes y asi no te aburras con los mismos chistes de siempre y poder compartirlos con todos tus familiares y amigos para pasar un buen rato con ellos y reírte sin parar?
+
+Entonces estas en el lugar adecuado, esta es la app de chistes que estás buscando, Descárgala Ya.
+
+Las Características que sobresalen de esta aplicación de esta aplicación chistes gratis para whastapp son:
+
+
+- Esta aplicación de chistes es completamente gratis, no tendrás que pagar absolutamente nada.
+
+- Estamos siempre agregando nuevos chistes y categorías con los temas mas virales del momento. 
+
+- Es muy fácil de utilizar, solo has clic con el dedo hacia abajo para pasar al siguiente chiste a si como si estuvieras viendo tus publicaciones en Facebook.
+
+- Tiene una amplia colección de chistes buenísimos que a diferencia de las demás apps se van agregando nuevos chistes todo el tiempo.
+
+- Cada día que entres a la aplicación verás nuevos chistes graciosos, abre todos los días esta app si lo deseas para leerlos todos.
+
+- Si encuentras algún chiste muy bueno y que te guste mucho, puedes usar los iconos que están abajo del chiste para compartirlo a través de tus aplicaciones favoritas como WhatsApp, Messenger, Facebook, Telegram y muchas más. También tienes la posibilidad de mandar estos chistes geniales a través de SMS o email, por ejemplo
+
+- Si te da flojera leer los chistes, tienes también la opción de poder escuchar estos chistes en audio gratis y para ello solo tienes que dar clic en el botón con el ícono en forma de audio.
+
+- Los chistes que mas te gusten podrás marcarlos con el ícono de corazón y de esta forma los agregarás a tu apartado de chistes favoritos y así poder leerlos cuando quieras.
+
+- Todos los chistes además de ser gratis, son todos chistes en español. 
+
+- Tienes la opción de poder ver y elegir los chistes por categorías, además también conforme pase el tiempo se irán agregando nuevas categorías
+
+- También tienes la opción de poder buscar los chistes escritos por palabra  
+
+Esperamos que esta aplicación de chistes sea de tu agrado. Y te agradeceríamos mucho que pudieras valorar la aplicación dándonos una buena puntuación, ya que esto nos ayudará a seguir actualizando y añadiendo nuevas categorías y chistes divertidos.
+
+Ya no lo pienses más .... Da clic en DESCARGAR y disfruta de los mejores chistes graciosos

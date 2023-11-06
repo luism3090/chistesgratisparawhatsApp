@@ -128,10 +128,8 @@ public class CrearChisteActivity extends AppCompatActivity implements EmojiconGr
                 // este metodo tambien traerá la bandera si es que se pasan los chistes a revision antes de publicarse
                 ObtenerTotalChistesPorDia("https://chistesgratis.lmeapps.com/chistesgratiswhatsApp/obtener_total_chistes_por_dia.php");
 
-
             }
         });
-
 
 
     }
@@ -359,8 +357,6 @@ public class CrearChisteActivity extends AppCompatActivity implements EmojiconGr
 
                                             dialog.cancel();
                                         //}
-
-
 
                                     }
                                 });

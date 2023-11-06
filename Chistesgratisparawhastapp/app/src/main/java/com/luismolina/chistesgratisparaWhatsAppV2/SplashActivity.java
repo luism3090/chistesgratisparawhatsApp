@@ -1,7 +1,6 @@
 package com.luismolina.chistesgratisparaWhatsAppV2;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -23,7 +22,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,6 +32,7 @@ public class SplashActivity extends AppCompatActivity {
 
     SharedPreferences pref_config_AppChistes;
     String version_app_usuario = "";
+    int REQUEST_CODE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +61,7 @@ public class SplashActivity extends AppCompatActivity {
         obtenerInicialConfigApp("https://chistesgratis.lmeapps.com/chistesgratiswhatsApp/initialConfigApp.php");
 
     }
+
 
     public void obtenerInicialConfigApp(String url){
 

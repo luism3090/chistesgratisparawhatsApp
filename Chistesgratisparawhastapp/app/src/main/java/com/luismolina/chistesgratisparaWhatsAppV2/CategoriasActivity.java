@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -473,6 +474,24 @@ public class CategoriasActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+            case R.id.id_item0:
+                Intent intent = new Intent();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    intent.setAction(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+                    intent.putExtra(Settings.EXTRA_APP_PACKAGE, getPackageName());
+                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
+                    intent.putExtra("app_package", getPackageName());
+                    intent.putExtra("app_uid", getApplicationInfo().uid);
+                } else {
+                    intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                    intent.addCategory(Intent.CATEGORY_DEFAULT);
+                    intent.setData(Uri.parse("package:" + getPackageName()));
+                }
+
+                startActivity(intent);
+
+                return true;
             case R.id.id_item1:
 
                 Intent sendIntent1 = new Intent();
@@ -494,8 +513,8 @@ public class CategoriasActivity extends AppCompatActivity {
                 url="https://play.google.com/store/apps/details?id=com.luismolina.chistesgratisparaWhatsAppV2";
 
                 Uri uri = Uri.parse(url);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
+                Intent intent1 = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent1);
 
                 return true;
             case R.id.id_item3:
@@ -503,6 +522,17 @@ public class CategoriasActivity extends AppCompatActivity {
                 Intent infoAplicacion = new Intent(getApplicationContext(),InfoAplicacionActivity.class);
 
                 startActivity(infoAplicacion);
+
+                return true;
+            case R.id.id_item4:
+
+                String url2;
+
+                url2="https://chistesgratis.lmeapps.com/chistesgratiswhatsApp/politica.html";
+
+                Uri uri2 = Uri.parse(url2);
+                Intent intent2 = new Intent(Intent.ACTION_VIEW, uri2);
+                startActivity(intent2);
 
                 return true;
             default:

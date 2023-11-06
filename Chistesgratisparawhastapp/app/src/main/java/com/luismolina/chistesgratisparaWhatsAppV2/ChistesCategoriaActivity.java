@@ -1,6 +1,7 @@
 package com.luismolina.chistesgratisparaWhatsAppV2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -14,6 +15,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -21,6 +23,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.StrictMode;
+import android.provider.Settings;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.Menu;
@@ -66,14 +69,14 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
+import static java.lang.Float.parseFloat;
+
 public class ChistesCategoriaActivity extends AppCompatActivity implements View.OnTouchListener, ViewTreeObserver.OnScrollChangedListener {
 
     ProgressDialog dialog;
 
     SharedPreferences mipreferencia_user, mipreferencia_TotalRows, mipreferencia_categoria;
     SharedPreferences pref_Index_InterstitialAd;
-
-//    ImageView image_home1,image_home2,image_categorias1,image_categorias2,image_favoritos1,image_favoritos2,image_nuevos1,image_nuevos2;
 
     ScrollView sv_main;
     int x=0;
@@ -159,9 +162,6 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                     }, 1000);
 
                 }
-                //else{
-                //Toast.makeText(getApplicationContext(), showAdIntertiWhatsOrScroll+"jejeje", Toast.LENGTH_LONG).show();
-                //}
 
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
@@ -312,14 +312,12 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                             String id_boton_favorito_normal = chistesArray.getString("id_boton_favorito_normal");
 
 
-
                             // --------------------------------- Creando en Text View para colocar el texto del chiste ---------------------------------
 
                             TextView textViewChiste = new TextView(getApplicationContext());
                             textViewChiste.setLayoutParams(new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                             textViewChiste.setText(chiste);
                             textViewChiste.setBackgroundColor(Color.rgb(0,0,0));
-                            //textViewChiste.setBackgroundColor(Color.rgb(7,94,85));
                             textViewChiste.setTextColor(Color.rgb(255,255,255));
                             textViewChiste.setMinHeight(700);
                             textViewChiste.setGravity(Gravity.CENTER);
@@ -341,7 +339,6 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                             LinearLayout contenedor = new LinearLayout(getApplicationContext());
                             contenedor.setLayoutParams(new LinearLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
                             contenedor.setOrientation(LinearLayout.HORIZONTAL);
-                            //contenedor.setBackgroundColor(Color.rgb(20,50,90));
                             contenedor.setPadding(0,-30,0,0);
                             contenedor.setGravity(Gravity.CENTER_HORIZONTAL);
                             layout_chistes.addView(contenedor);
@@ -350,16 +347,13 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                             // --------------------------------- Creando el boton de Whatsapp -------------------------------------
 
                             ImageButton botonWhastapp = new ImageButton(getApplicationContext());
-                            //botonWhastapp.setLayoutParams(new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                             botonWhastapp.setLayoutParams(new ActionBar.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                             botonWhastapp.setImageResource(R.mipmap.icono_whatsapp);
                             botonWhastapp.setBackgroundColor(Color.TRANSPARENT);
                             botonWhastapp.setPadding(5,26,0,0);
                             botonWhastapp.setId(id_chiste_db);
-                            //botonWhastapp.setMinimumWidth(50);
                             contenedor.addView(botonWhastapp);
-                            //layout_chistes.addView(botonWhastapp);
-                            //rel_layout_acciones.addView(botonWhastapp);
+
                             botonWhastapp.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -367,34 +361,22 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                                     TextView textViewChiste = (TextView) findViewById(view.getId());
                                     String textoChiste = textViewChiste.getText().toString();
 
-                                    textViewChiste.setDrawingCacheEnabled(true);
-                                    textViewChiste.buildDrawingCache();  // Creando un Bitmap del Texview el chiste
-                                    Uri url = saveImageExternal(textViewChiste.getDrawingCache());
+                                    // Obtén el servicio ClipboardManager
+                                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 
-                                    if(Build.VERSION.SDK_INT>=24){
-                                        try{
-                                            Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
-                                            m.invoke(null);
-                                            Uri.fromFile(new File(String.valueOf(url)));
-                                        }catch(Exception e){
-                                            e.printStackTrace();
-                                        }
-                                    }
+                                    // Crea un ClipData object para almacenar el texto
+                                    ClipData clip = ClipData.newPlainText("label", textoChiste);
 
-                                    Intent sendIntent1 = new Intent();
-                                    sendIntent1.setAction(Intent.ACTION_SEND);
-                                    sendIntent1.setData(url);
-                                    sendIntent1.setType("image/*");
-                                    sendIntent1.setPackage("com.whatsapp");
-                                    sendIntent1.putExtra(Intent.EXTRA_STREAM, url);
-                                    sendIntent1.putExtra(android.content.Intent.EXTRA_TEXT, "Obtén más chistes en ==> https://bit.ly/chistes-gratis");
-                                    //sendIntent1.putExtra(Intent.EXTRA_STREAM, getResources().getIdentifier("com.my.app:drawable/"+parts[1], null, null));
-                                    try {
-                                        startActivity(sendIntent1);
-                                    }
-                                    catch (ActivityNotFoundException ex) {
-                                        Toast.makeText(getApplicationContext(),"Ocurrió un problema al compartir la imagen", Toast.LENGTH_LONG).show();
-                                    }
+                                    // Copia el texto al portapapeles
+                                    clipboard.setPrimaryClip(clip);
+
+                                    // Convierte el TextView en una imagen
+                                    Bitmap bitmap = convertViewToBitmap(textViewChiste);
+
+                                    // Save the bitmap to a file
+                                    File file = saveBitmap(bitmap);
+
+                                    shareImageOnWhatsApp(file);
 
                                     // mostrando Intertitial
                                     pref_Index_InterstitialAd = getSharedPreferences("indexPublicidad", Context.MODE_PRIVATE);
@@ -424,16 +406,12 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                             // --------------------------------- Creando el boton de Facebook ---------------------------------
 
                             ImageButton botonFacebook = new ImageButton(getApplicationContext());
-                            //botonFacebook.setLayoutParams(new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                             botonFacebook.setLayoutParams(new ActionBar.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                             botonFacebook.setImageResource(R.mipmap.icono_messenger);
                             botonFacebook.setBackgroundColor(Color.TRANSPARENT);
                             botonFacebook.setPadding(22,28,0,0);
-                            //botonFacebook.setMaxHeight(55);
                             botonFacebook.setId(id_chiste_db);
                             contenedor.addView(botonFacebook);
-                            //layout_chistes.addView(botonFacebook);
-                            //rel_layout_acciones.addView(botonFacebook);
                             botonFacebook.setOnClickListener(new View.OnClickListener() {
                                 @SuppressLint("ResourceType")
                                 @Override
@@ -442,36 +420,21 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                                     TextView textViewChiste = (TextView) findViewById(view.getId());
                                     String textoChiste = textViewChiste.getText().toString();
 
-                                    textViewChiste.setDrawingCacheEnabled(true);
-                                    textViewChiste.buildDrawingCache();  // Creando un Bitmap del Texview el chiste
-                                    Uri url = saveImageExternal(textViewChiste.getDrawingCache());
+                                    // Obtén el servicio ClipboardManager
+                                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 
-                                    if(Build.VERSION.SDK_INT>=24){
-                                        try{
-                                            Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
-                                            m.invoke(null);
-                                            Uri.fromFile(new File(String.valueOf(url)));
-                                        }catch(Exception e){
-                                            e.printStackTrace();
-                                        }
-                                    }
+                                    // Crea un ClipData object para almacenar el texto
+                                    ClipData clip = ClipData.newPlainText("label", textoChiste);
 
-                                    Intent sendIntent1 = new Intent();
-                                    sendIntent1.setAction(Intent.ACTION_SEND);
-                                    sendIntent1.setData(url);
-                                    sendIntent1.setType("image/*");
-                                    sendIntent1.setPackage("com.facebook.orca");
-                                    sendIntent1.putExtra(Intent.EXTRA_STREAM, url);
-                                    sendIntent1.putExtra(android.content.Intent.EXTRA_TEXT, "Obtén más chistes en ==> https://bit.ly/chistes-gratis");
-                                    //sendIntent1.putExtra(Intent.EXTRA_STREAM, getResources().getIdentifier("com.my.app:drawable/"+parts[1], null, null));
-                                    try {
-                                        startActivity(sendIntent1);
-                                    }
-                                    catch (ActivityNotFoundException ex) {
-                                        Toast.makeText(getApplicationContext(),"Ocurrió un problema al compartir la imagen", Toast.LENGTH_LONG).show();
-                                    }
+                                    // Copia el texto al portapapeles
+                                    clipboard.setPrimaryClip(clip);
 
-                                    //incrementarIdInterstitial("otro");
+                                    // Convierte el TextView en una imagen
+                                    Bitmap bitmap = convertViewToBitmap(textViewChiste);
+
+                                    File file = saveBitmap(bitmap);
+
+                                    shareImageOnFacebook(file);
 
                                 }
                             });
@@ -491,18 +454,7 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                                     TextView textViewChiste = (TextView) findViewById(view.getId());
                                     String textoChiste = textViewChiste.getText().toString();
 
-                                    Intent sendIntent1 = new Intent();
-                                    sendIntent1.setAction(Intent.ACTION_SEND);
-                                    sendIntent1.setType("text/plain");
-                                    sendIntent1.putExtra(android.content.Intent.EXTRA_TEXT, textoChiste + "\n\n Obtén más chistes en ==> https://bit.ly/chistes-gratis");
-                                    try {
-                                        startActivity(sendIntent1);
-                                    }
-                                    catch (ActivityNotFoundException ex) {
-                                        Toast.makeText(getApplicationContext(),"Ocurrió un problema al compartir el chiste", Toast.LENGTH_LONG).show();
-                                    }
-
-                                    //incrementarIdInterstitial("otro");
+                                    shareImageOnTextPlain(textoChiste);
                                 }
                             });
 
@@ -521,38 +473,24 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                                     TextView textViewChiste = (TextView) findViewById(view.getId());
                                     String textoChiste = textViewChiste.getText().toString();
 
-                                    textViewChiste.setDrawingCacheEnabled(true);
-                                    textViewChiste.buildDrawingCache();  // Creando un Bitmap del Texview el chiste
-                                    Uri url = saveImageExternal(textViewChiste.getDrawingCache());
+                                    // Obtén el servicio ClipboardManager
+                                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 
-                                    if(Build.VERSION.SDK_INT>=24){
-                                        try{
-                                            Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
-                                            m.invoke(null);
-                                            Uri.fromFile(new File(String.valueOf(url)));
-                                        }catch(Exception e){
-                                            e.printStackTrace();
-                                        }
-                                    }
+                                    // Crea un ClipData object para almacenar el texto
+                                    ClipData clip = ClipData.newPlainText("label", textoChiste);
 
-                                    Intent sendIntent1 = new Intent();
-                                    sendIntent1.setAction(Intent.ACTION_SEND);
-                                    sendIntent1.setData(url);
-                                    sendIntent1.setType("image/*");
-                                    sendIntent1.putExtra(Intent.EXTRA_STREAM, url);
-                                    sendIntent1.putExtra(android.content.Intent.EXTRA_TEXT, "Obtén más chistes en ==> https://bit.ly/chistes-gratis");
-                                    try {
-                                        startActivity(sendIntent1);
-                                    }
-                                    catch (ActivityNotFoundException ex) {
-                                        Toast.makeText(getApplicationContext(),"Ocurrió un problema al compartir la imagen", Toast.LENGTH_LONG).show();
-                                    }
+                                    // Copia el texto al portapapeles
+                                    clipboard.setPrimaryClip(clip);
 
-                                    //incrementarIdInterstitial("otro");
+                                    // Convierte el TextView en una imagen
+                                    Bitmap bitmap = convertViewToBitmap(textViewChiste);
+
+                                    File file = saveBitmap(bitmap);
+
+                                    shareImageOnAnywhere(file);
+
                                 }
                             });
-
-
 
                             ImageButton botonCorazonFavoritos = new ImageButton(getApplicationContext());
                             botonCorazonFavoritos.setLayoutParams(new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -572,12 +510,10 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                                 @Override
                                 public void onClick(View view) {
 
-
                                     // OBTENIENDO EL ID DEL ELEMENTO QUE SE LE DIO CLICK Y OCULTARLO
 
                                     view.setVisibility(View.GONE);  // ocultando el elemento al que se le dio click
                                     int val = view.getId(); // obteniendo el id del elemento al que se le dio click
-
 
                                     // HACIENDO VISIBLE EL CORAZON SIN RELLENO
                                     //        1000017
@@ -587,16 +523,11 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
 
                                     // OBTENIENDO EL ID DEL TEXVIEW DEL CHISTE PARA LLEVARLO A LA TABLA DE FAVORITOS
                                     int id_chiste = val - 1000000;
-                                    //TextView textViewChiste = (TextView) findViewById(id_chiste);
-                                    //String textoChiste = textViewChiste.getText().toString();
-                                    //Toast.makeText(getApplicationContext(),textoChiste,Toast.LENGTH_LONG).show();
 
                                     eliminarChisteFavorito((id_chiste),mipreferencia_user.getString("id_usuario",""),view.getId(),val2,"https://chistesgratis.lmeapps.com/chistesgratiswhatsApp/eliminar_chiste_favorito.php");
-                                    //incrementarIdInterstitial("otro");
 
                                 }
                             });
-
 
                             ImageButton botonCorazon = new ImageButton(getApplicationContext());
                             botonCorazon.setLayoutParams(new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -621,8 +552,6 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                                     view.setVisibility(View.GONE);
                                     int val = view.getId();  // 2000000
 
-                                    //Toast.makeText(getApplicationContext(),String.valueOf(val2),Toast.LENGTH_SHORT).show();
-
                                     // VOLVIENDO VISIBLE EL ELEMENTO DE CORAZON ROJO PARA MOSTRARLO
 
                                     //         17  - 1000000
@@ -632,13 +561,8 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
 
                                     // OBTENIENDO EL ID DEL TEXVIEW DEL CHISTE PARA LLEVARLO A LA TABLA DE FAVORITOS
                                     int id_chiste = val - 2000000;
-                                    //TextView textViewChiste = (TextView) findViewById(id_chiste);
-                                    //String textoChiste = textViewChiste.getText().toString();
-                                    //Toast.makeText(getApplicationContext(),textoChiste,Toast.LENGTH_LONG).show();
 
                                     guardarChisteFavorito((id_chiste),mipreferencia_user.getString("id_usuario",""),view.getId(),val2,"https://chistesgratis.lmeapps.com/chistesgratiswhatsApp/guardar_chiste_favorito.php");
-
-                                    //incrementarIdInterstitial("otro");
 
                                 }
                             });
@@ -658,8 +582,6 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                                     String textoChiste = textViewChiste.getText().toString();
 
                                     ttsManager.initQueue(String.valueOf(textoChiste));
-
-                                    //incrementarIdInterstitial("otro");
 
                                 }
 
@@ -695,7 +617,6 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                                 // --------------------------------------- Creando el espacio entre chistes ---------------------------------
 
                                 Space espacioEntreChiste3 = new Space(getApplicationContext());
-                                //Space espacioEntreChiste = new Space((Context) context);
                                 espacioEntreChiste3.setLayoutParams(new ActionBar.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                                 espacioEntreChiste3.setMinimumHeight(150);
                                 layout_chistes.addView(espacioEntreChiste3);
@@ -978,23 +899,6 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
         }
     }
 
-    private Uri saveImageExternal(Bitmap image) {
-        //TODO - Should be processed in another thread
-
-        Uri uri = null;
-        try {
-            File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "chiste.png");
-            FileOutputStream stream = new FileOutputStream(file);
-            image.compress(Bitmap.CompressFormat.PNG, 90, stream);
-            stream.close();
-            uri = Uri.fromFile(file);
-        } catch (IOException e) {
-            //Log.d(TAG, "IOException while trying to write file for sharing: " + e.getMessage());
-            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
-        }
-        return uri;
-    }
-
     public void incrementarIdInterstitial(String accion){
 
         pref_Index_InterstitialAd = getSharedPreferences("indexPublicidad", Context.MODE_PRIVATE);
@@ -1038,6 +942,24 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+            case R.id.id_item0:
+                Intent intent = new Intent();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    intent.setAction(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+                    intent.putExtra(Settings.EXTRA_APP_PACKAGE, getPackageName());
+                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
+                    intent.putExtra("app_package", getPackageName());
+                    intent.putExtra("app_uid", getApplicationInfo().uid);
+                } else {
+                    intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                    intent.addCategory(Intent.CATEGORY_DEFAULT);
+                    intent.setData(Uri.parse("package:" + getPackageName()));
+                }
+
+                startActivity(intent);
+
+                return true;
             case R.id.id_item1:
 
                 Intent sendIntent1 = new Intent();
@@ -1059,8 +981,8 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                 url="https://play.google.com/store/apps/details?id=com.luismolina.chistesgratisparaWhatsAppV2";
 
                 Uri uri = Uri.parse(url);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
+                Intent intent1 = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent1);
 
                 return true;
             case R.id.id_item3:
@@ -1068,6 +990,17 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
                 Intent infoAplicacion = new Intent(getApplicationContext(),InfoAplicacionActivity.class);
 
                 startActivity(infoAplicacion);
+
+                return true;
+            case R.id.id_item4:
+
+                String url2;
+
+                url2="https://chistesgratis.lmeapps.com/chistesgratiswhatsApp/politica.html";
+
+                Uri uri2 = Uri.parse(url2);
+                Intent intent2 = new Intent(Intent.ACTION_VIEW, uri2);
+                startActivity(intent2);
 
                 return true;
             default:
@@ -1147,4 +1080,105 @@ public class ChistesCategoriaActivity extends AppCompatActivity implements View.
         requestQueue.add(stringRequest);
 
     }
+
+    private File saveBitmap(Bitmap bitmap) {
+        // Save the bitmap to a file
+        File file = new File(getExternalCacheDir(), "sampleImage.png");
+
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return file;
+    }
+
+    private void shareImageOnFacebook(File file) {
+
+        Uri uri = FileProvider.getUriForFile(this, getApplicationContext().getPackageName() + ".provider", file);
+
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        shareIntent.setType("image/*");
+        shareIntent.setPackage("com.facebook.orca");
+        shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Obtén más chistes en ==> https://bit.ly/chistes-gratis");
+
+        try {
+            startActivity(Intent.createChooser(shareIntent, "Compartir chiste..."));
+        }
+        catch (ActivityNotFoundException ex) {
+            Toast.makeText(getApplicationContext(),"Para poder compartir la imagen instale Facebook Messenger", Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
+    private void shareImageOnWhatsApp(File file) {
+
+        Uri uri = FileProvider.getUriForFile(this, getApplicationContext().getPackageName() + ".provider", file);
+
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        shareIntent.setType("image/*");
+        shareIntent.setPackage("com.whatsapp");
+        shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Obtén más chistes en ==> https://bit.ly/chistes-gratis");
+
+        try {
+            startActivity(Intent.createChooser(shareIntent, "Compartir chiste..."));
+        }
+        catch (ActivityNotFoundException ex) {
+            Toast.makeText(getApplicationContext(),"Para poder compartir la imagen instale WhatsApp", Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
+    public void shareImageOnTextPlain(String textoChiste) {
+
+        Intent sendIntent1 = new Intent();
+        sendIntent1.setAction(Intent.ACTION_SEND);
+        sendIntent1.setType("text/plain");
+        sendIntent1.putExtra(android.content.Intent.EXTRA_TEXT, textoChiste + "\n\n Obtén más chistes en ==> https://bit.ly/chistes-gratis");
+        try {
+            startActivity(sendIntent1);
+        }
+        catch (ActivityNotFoundException ex) {
+            Toast.makeText(getApplicationContext(),"Ocurrió un problema al compartir el chiste", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    private void shareImageOnAnywhere(File file) {
+
+        Uri uri = FileProvider.getUriForFile(this, getApplicationContext().getPackageName() + ".provider", file);
+
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        shareIntent.setType("image/*");
+        shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Obtén más chistes en ==> https://bit.ly/chistes-gratis");
+
+        try {
+            startActivity(Intent.createChooser(shareIntent, "Compartir chiste..."));
+        }
+        catch (ActivityNotFoundException ex) {
+            Toast.makeText(getApplicationContext(),"Ocurrió un problema al compartir la imagen", Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
+    private Bitmap convertViewToBitmap(View view) {
+        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        view.draw(canvas);
+        return bitmap;
+    }
+
 }

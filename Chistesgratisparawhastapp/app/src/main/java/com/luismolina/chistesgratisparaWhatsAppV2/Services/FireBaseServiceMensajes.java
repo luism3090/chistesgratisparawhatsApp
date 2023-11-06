@@ -52,20 +52,13 @@ public class FireBaseServiceMensajes extends FirebaseMessagingService {
         // creando un string id del canal
         String channelId = "my_channel_01";
 
-        //NotificationManager notificationManager = (NotificationManager) context.getSystemService(Activity.NOTIFICATION_SERVICE);
-
-
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         mBuilder = new NotificationCompat.Builder(this,null);
 
         if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
 
-            //CharSequence name = "humor";    //antes
-
             CharSequence name = "chistes";
-
-            //String description = "Humor para los usuarios";  //antes
 
             String description = "chistes para los usuarios";
 
@@ -90,11 +83,13 @@ public class FireBaseServiceMensajes extends FirebaseMessagingService {
         PendingIntent pendingIntent;
         Random random1 = new Random();
 
-        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-             pendingIntent = PendingIntent.getActivity(this, random1.nextInt(), intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+             // pendingIntent = PendingIntent.getActivity(this, random1.nextInt(), intent, PendingIntent.FLAG_CANCEL_CURRENT);
+            pendingIntent = PendingIntent.getActivity(this, random1.nextInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         }
         else{
-             pendingIntent = PendingIntent.getActivity(this, random1.nextInt(), intent, PendingIntent.FLAG_ONE_SHOT);
+             //pendingIntent = PendingIntent.getActivity(this, random1.nextInt(), intent, PendingIntent.FLAG_ONE_SHOT);
+            pendingIntent = PendingIntent.getActivity(this, random1.nextInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
         }
 
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
@@ -166,11 +161,11 @@ public class FireBaseServiceMensajes extends FirebaseMessagingService {
         PendingIntent pendingIntent;
         Random random1 = new Random();
 
-        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            pendingIntent = PendingIntent.getActivity(this, random1.nextInt(), intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            pendingIntent = PendingIntent.getActivity(this, random1.nextInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         }
         else{
-            pendingIntent = PendingIntent.getActivity(this, random1.nextInt(), intent, PendingIntent.FLAG_ONE_SHOT);
+            pendingIntent = PendingIntent.getActivity(this, random1.nextInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
         }
 
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
